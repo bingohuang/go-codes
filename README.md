@@ -1,2 +1,2 @@
 # go-codes
-Go codes
+Go 编码题集
