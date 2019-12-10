@@ -8,8 +8,8 @@ import (
 	"strings"
 )
 
-// xxxx. template
-// https://leetcode-cn.com/problems/xxxx
+// 242. 有效的字母异位词
+// https://leetcode-cn.com/problems/valid-anagram/
 func main() {
 	r := bufio.NewReader(os.Stdin)
 
@@ -30,7 +30,28 @@ func main() {
 
 }
 
-func algo(n int, m int) int {
+func isAnagram(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
 
-	return n + m
+	var w [26]int
+	for _, i := range s {
+		//fmt.Println(i)
+		w[i-'a'] += 1
+	}
+	fmt.Println("s:", w)
+
+	for _, i := range t {
+		w[i-'a'] -= 1
+	}
+	fmt.Println("t:", w)
+
+	for _, v := range w {
+		if v != 0 {
+			return false
+		}
+	}
+
+	return true
 }
