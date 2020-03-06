@@ -22,17 +22,72 @@ func Test860(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := lemonadeChange(v.in)
+		out := lemonadeChange1(v.in)
 		if !reflect.DeepEqual(out, v.out) {
 			t.Errorf("case-%v: except answer: [%v], get answer: [%v]", k, v.out, out)
 		}
 	}
 }
 
+// 算法1：
+// 如果给5元，不用找
+// 如果给10元，找5元，否则找不开
+// 如果给20元，优先找10+5，再找5+5+5，否则找不开
+func lemonadeChange1(bills []int) bool {
+	five, ten := 0, 0
+
+	for _, v := range bills {
+		if v == 5 {
+			five++
+		} else if v == 10 {
+			if five >= 1 {
+				five--
+				ten++
+			} else {
+				return false
+			}
+		} else if v == 20 {
+			if five >= 1 && ten >= 1 {
+				five--
+				ten--
+			} else if five >= 3 {
+				five -= 3
+			} else {
+				return false
+			}
+		}
+	}
+
+	return true
+}
+
 //leetcode submit region begin(Prohibit modification and deletion)
 func lemonadeChange(bills []int) bool {
+	five, ten := 0, 0
 
-	return false
+	for _, v := range bills {
+		if v == 5 {
+			five++
+		} else if v == 10 {
+			if five >= 1 {
+				five--
+				ten++
+			} else {
+				return false
+			}
+		} else if v == 20 {
+			if five >= 1 && ten >= 1 {
+				five--
+				ten--
+			} else if five >= 3 {
+				five -= 3
+			} else {
+				return false
+			}
+		}
+	}
+
+	return true
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
