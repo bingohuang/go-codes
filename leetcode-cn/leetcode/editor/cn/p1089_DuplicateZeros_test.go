@@ -18,11 +18,12 @@ func Test1089(t *testing.T) {
 		"1": IO1089{[]int{1, 0, 2, 3, 0, 4, 5, 0}, []int{1, 0, 0, 2, 3, 0, 0, 4}},
 		"2": IO1089{[]int{1, 2, 3}, []int{1, 2, 3}},
 		"3": IO1089{[]int{1, 2, 0}, []int{1, 2, 0}},
+		"4": IO1089{[]int{8, 4, 5, 0, 0, 0, 0, 7}, []int{8, 4, 5, 0, 0, 0, 0, 0}},
 	}
 
 	for k, v := range tc {
 		// algo func
-		duplicateZeros1(v.in)
+		duplicateZeros3(v.in)
 		if !reflect.DeepEqual(v.in, v.out) {
 			t.Errorf("case-%v: except answer: [%v], get answer: [%v]", k, v.out, v.in)
 		}
@@ -30,7 +31,7 @@ func Test1089(t *testing.T) {
 }
 
 // 算法1
-// 开辟一个新的slice
+// 开辟一个新的slice，复制
 func duplicateZeros1(arr []int) {
 	t := make([]int, len(arr))
 	i := 0
@@ -55,29 +56,56 @@ func duplicateZeros1(arr []int) {
 	copy(arr, t)
 }
 
-//leetcode submit region begin(Prohibit modification and deletion)
-func duplicateZeros(arr []int) {
-	t := make([]int, len(arr))
-	i := 0
-	for _, v := range arr {
-		if i == len(arr) {
-			break
-		}
-		if v != 0 {
-			t[i] = v
-			i++
-		} else {
-			t[i] = 0
-			i++
-			if i == len(arr) {
+// 算法2：两次遍历法
+func duplicateZeros2(arr []int) {
+	// 1. 计算需要复写0的数量
+	pDups := 0
+	length := len(arr) - 1
+	for left := 0; left <= length-pDups; left++ {
+		if arr[left] == 0 {
+			// 2. 注意处理元素边界上0的情况
+			if left == length-pDups {
+				arr[length] = 0
+				length--
 				break
 			}
-			t[i] = 0
+			pDups++
+		}
+	}
+
+	// 3. 从末尾迭代数组
+	last := length - pDups
+	for i := last; i >= 0; i-- {
+		if arr[i] == 0 {
+			arr[i+pDups] = 0
+			pDups--
+			arr[i+pDups] = 0
+		} else {
+			arr[i+pDups] = arr[i]
+		}
+	}
+}
+
+// 算法3： append复制转移法
+func duplicateZeros3(arr []int) {
+	fmt.Printf("arr=%v\n", arr)
+	for i := 0; i < len(arr)-1; i++ {
+		if arr[i] == 0 {
+			arr = append(arr[:i+1], arr[i:len(arr)-1]...)
+			fmt.Printf("\tarr=%v\n", arr)
 			i++
 		}
 	}
-	fmt.Printf("t=%v\narr=%v\n", t, arr)
-	copy(arr, t)
+}
+
+//leetcode submit region begin(Prohibit modification and deletion)
+func duplicateZeros(arr []int) {
+	for i := 0; i < len(arr)-1; i++ {
+		if arr[i] == 0 {
+			arr = append(arr[:i+1], arr[i:len(arr)-1]...)
+			i++
+		}
+	}
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
