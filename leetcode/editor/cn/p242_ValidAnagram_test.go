@@ -54,6 +54,9 @@ func isAnagram1(s string, t string) bool {
 // 而出现在字符串 t 里的字符个数减 1，
 // 最后判断每个小写字母的个数是否都为 0。
 func isAnagram2(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
 	arr := [26]int{}
 	for _, v := range s {
 		arr[v-'a']++
@@ -67,32 +70,6 @@ func isAnagram2(s string, t string) bool {
 			return false
 		}
 	}
-	return true
-}
-
-func isAnagram3(s string, t string) bool {
-	if len(s) != len(t) {
-		return false
-	}
-
-	var w [26]int
-	for _, i := range s {
-		//fmt.Println(i)
-		w[i-'a'] += 1
-	}
-	fmt.Println("s:", w)
-
-	for _, i := range t {
-		w[i-'a'] -= 1
-	}
-	fmt.Println("t:", w)
-
-	for _, v := range w {
-		if v != 0 {
-			return false
-		}
-	}
-
 	return true
 }
 

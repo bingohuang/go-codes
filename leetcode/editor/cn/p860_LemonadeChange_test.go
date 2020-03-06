@@ -32,6 +32,7 @@ func Test860(t *testing.T) {
 //leetcode submit region begin(Prohibit modification and deletion)
 func lemonadeChange(bills []int) bool {
 
+	return false
 }
 
 //leetcode submit region end(Prohibit modification and deletion)

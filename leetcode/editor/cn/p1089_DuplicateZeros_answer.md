@@ -1,4 +1,4 @@
-# Go 三种实现
+# Go 三种实现（最短8行代码）
 
 > [1089. 复写零](https://leetcode-cn.com/problems/duplicate-zeros/)
 
