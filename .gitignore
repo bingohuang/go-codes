@@ -11,3 +11,6 @@
 # Output of the go coverage tool, specifically when used with LiteIDE and Goland
 *.out
 .idea
+
+**/all.json
+**/translation.json
