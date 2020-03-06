@@ -1,5 +1,7 @@
 # Go 两种实现
 
+> https://leetcode-cn.com/problems/valid-anagram/solution/go-liang-chong-shi-xian-by-bingohuang-2/
+
 > [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
 
 ## 1. 两个数组比较法

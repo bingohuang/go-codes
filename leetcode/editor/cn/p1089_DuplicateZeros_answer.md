@@ -1,5 +1,7 @@
 # Go 三种实现（最短8行代码）
 
+> https://leetcode-cn.com/problems/duplicate-zeros/solution/goyu-yan-de-san-chong-shi-xian-by-bingohuang/
+
 > [1089. 复写零](https://leetcode-cn.com/problems/duplicate-zeros/)
 
 ## 1. 暴力破解法
