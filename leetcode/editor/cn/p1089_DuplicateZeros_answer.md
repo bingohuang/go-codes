@@ -1,4 +1,4 @@
-# Go 语言的三种实现
+# Go 三种实现
 
 > [1089. 复写零](https://leetcode-cn.com/problems/duplicate-zeros/)
 
