@@ -18,6 +18,10 @@ func twoSum1(nums []int, target int) []int {
 	return nil
 }
 ```
+### 复杂度分析
+- 时间复杂度：O(N^2)
+- 空间复杂度：O(1)
+
 ## 2. map法
 // 算法2：map法
 ```go
@@ -32,3 +36,6 @@ func twoSum2(nums []int, target int) []int {
 	return nil
 }
 ```
+### 复杂度分析
+- 时间复杂度：O(N)
+- 空间复杂度：O(N)
