@@ -1,9 +1,34 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
 	"strings"
 )
+
+// xxx.
+// https://leetcode-cn.com/problems/xxx
+func main() {
+	r := bufio.NewReader(os.Stdin)
+
+	for {
+		input, _ := r.ReadString('\n')
+		if input == "" || input == "\n" {
+			return
+		}
+		input = strings.TrimSpace(input)
+		inputs := strings.Split(input, " ")
+		//fmt.Println("inputs:", inputs)
+
+		n, _ := strconv.Atoi(inputs[0])
+		m, _ := strconv.Atoi(inputs[1])
+
+		fmt.Println(n, m)
+	}
+
+}
 
 //给你一堆抢票时间，求抢到票的人数
 //每秒都有人抢到票
@@ -17,15 +42,18 @@ import (
 //2019-08-11 12:13:12.001
 //2019-08-11 12:13:12.002
 //2019-08-11 12:13:13.002
-//结果：有4个人抢到
-//给定的抢票时间是按照先后顺序，通过map的方式判断是否有最早时刻有一起抢到票
+//有3个人抢到
 func Shakedown(times []string) int {
 	var count int
 	timeMap := make(map[string]string)
 	for _, time := range times {
 		s := strings.Split(time, ".")
 		fmt.Println("s:", s)
+		fmt.Println("s[0]:", s[0])
+		fmt.Println("s[1]:", s[1])
 		if v, ok := timeMap[s[0]]; !ok {
+			fmt.Println("v:", v)
+			fmt.Println("ok :", ok)
 			timeMap[s[0]] = s[1]
 			fmt.Println("timeMap1:", timeMap)
 			count++
@@ -36,6 +64,5 @@ func Shakedown(times []string) int {
 			fmt.Println("count2:", count)
 		}
 	}
-	fmt.Println("count:", count)
 	return count
 }
