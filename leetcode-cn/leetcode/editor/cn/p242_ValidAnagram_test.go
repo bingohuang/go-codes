@@ -1,4 +1,4 @@
-package p242
+package main
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-type IO struct {
+type IO242 struct {
 	in1 string
 	in2 string
 	out bool
@@ -14,9 +14,9 @@ type IO struct {
 
 func Test242(t *testing.T) {
 	// add test cases for yourself
-	tc := map[string]IO{
-		"1": IO{"anagram", "nagaram", true},
-		"2": IO{"rat", "car", false},
+	tc := map[string]IO242{
+		"1": IO242{"anagram", "nagaram", true},
+		"2": IO242{"rat", "car", false},
 	}
 
 	for k, v := range tc {
