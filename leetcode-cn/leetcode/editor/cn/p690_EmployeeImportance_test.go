@@ -26,6 +26,10 @@ func Test690(t *testing.T) {
 	}
 }
 
+func p690() int {
+	return 0
+}
+
 //There is no code of Go type for this problem
 
 //给定一个保存员工信息的数据结构，它包含了员工唯一的id，重要度 和 直系下属的id。
