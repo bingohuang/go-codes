@@ -9,7 +9,6 @@ import (
 )
 
 // 图书借阅系统
-// http://3ms.huawei.com/hi/group/3706577/wiki_5658318.html
 func main() {
 
 	r := bufio.NewReader(os.Stdin)

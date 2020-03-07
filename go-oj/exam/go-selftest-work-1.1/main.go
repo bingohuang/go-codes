@@ -8,8 +8,7 @@ import (
 	"strings"
 )
 
-// 猴子吃桃
-
+// 猴子吃桃-优化版
 //比如，输入：1 2 3 4 5 6
 //期望输出：4
 //五颗桃树，桃子个数分别为1，2，3，4，5，天神6小时来，猴子最慢吃桃速度为4。
@@ -60,8 +59,6 @@ func main() {
 		//fmt.Println("piles:", piles)
 		//fmt.Println("h:", h)
 		fmt.Println(minEatingSpeed(piles, h))
-
-	LOOP:
 	}
 
 }

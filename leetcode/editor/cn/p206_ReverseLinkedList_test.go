@@ -78,8 +78,16 @@ func reverseList1(head *ListNode) *ListNode {
  * }
  */
 func reverseList(head *ListNode) *ListNode {
+	var newHead, next *ListNode
 
-	return head
+	for head != nil {
+		next = head.Next
+		head.Next = newHead
+		newHead = head
+		head = next
+	}
+
+	return newHead
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
