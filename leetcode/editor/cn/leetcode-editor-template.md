@@ -1,11 +1,11 @@
-# code template
+# [Leetcode editor](https://plugins.jetbrains.com/plugin/12132-leetcode-editor/) customer code template
 
-## code file name
+## Code File Name
 ```text
 p$!{question.frontendQuestionId}_$!velocityTool.camelCaseName(${question.titleSlug})_test
 ```
 
-## code content
+## Code Template
 ```text
 // github.com/bingohuang/go-codes
 package test
@@ -38,6 +38,7 @@ func Test$!{question.frontendQuestionId}(t *testing.T) {
 
 ${question.code}
 
+/* 题目详情 */
 ${question.content}
 
 ```

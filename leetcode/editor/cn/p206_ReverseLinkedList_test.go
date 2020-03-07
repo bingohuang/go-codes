@@ -92,6 +92,7 @@ func reverseList(head *ListNode) *ListNode {
 
 //leetcode submit region end(Prohibit modification and deletion)
 
+/* 题目详情 */
 //反转一个单链表。
 //
 // 示例:
