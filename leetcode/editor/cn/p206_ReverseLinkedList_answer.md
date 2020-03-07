@@ -1,45 +1,31 @@
-# Go 实现
+# Go 实现(含图解)
 
 > [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 
-> [实现代码](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p206_ReverseLinkedList_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p206_ReverseLinkedList_test.go)
 
 ## 思路
 - 要求: 已知链表头节点指针head，将链表逆序。(不可申请额外空间)
 
-![](img/p206-1.png)
+![](https://pic.leetcode-cn.com/cbdb66b5483a7781ce1cfd4b458f8387fbcfd909704109b3b71e58b4a5bab689.png)
 
 - 整体思路
 
-![](img/p206-2.png)
-
-- 循环过程
-
-![](img/p206-3.png)
-
-![](img/p206-4.png)
-
-![](img/p206-5.png)
-
-![](img/p206-6.png)
-
-![](img/p206-7.png)
-
-![](img/p206-8.png)
+![](https://pic.leetcode-cn.com/724e40955206daea0b5887bc77d3325ee5a05f9f3a59b2c798880a7bb62e2865.png)
 
 - 关键步骤
 
-![](img/p206-9.png)
+![](https://pic.leetcode-cn.com/43cf406296558661126dd04fadac55545d93007ebfa6ce6b37f574b4fdff10f4.png)
 
-![](img/p206-10.png)
+![](https://pic.leetcode-cn.com/17337d26cf2c714249b5f2be4419a5095a201049b5b5d156c24d867a75e3f36a.png)
 
-![](img/p206-11.png)
+![](https://pic.leetcode-cn.com/415e0d49cb49faf03f53f3c5f3e88e9fd7cf187177dc9c7a02451350e1c8cd92.png)
 
 - 效果
 
-![](img/p206-12.png)
+![](https://pic.leetcode-cn.com/78e9b6ecd1a8f371b971e7a42673b297606a39bd4de56fa3f2401c2b5d198699.png)
 
-## Go 代码
+## 算法1. 迭代法
 ```go
 // 算法1: 翻转链表
 func reverseList1(head *ListNode) *ListNode {
