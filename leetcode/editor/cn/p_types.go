@@ -22,6 +22,18 @@ func printList(l *ListNode) {
 }
 
 /**
+单链表转化为字符串
+*/
+func toStringList(l *ListNode) string {
+	var str string
+	for l != nil {
+		str += fmt.Sprintf("%d->", l.Val)
+		l = l.Next
+	}
+	return str
+}
+
+/**
 比较单链表
 */
 func compareList(a *ListNode, b *ListNode) bool {

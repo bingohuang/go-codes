@@ -16,6 +16,7 @@ p$!{question.frontendQuestionId}_$!velocityTool.camelCaseName(${question.titleSl
 package test
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -35,6 +36,11 @@ func Test$!{question.frontendQuestionId}(t *testing.T) {
 	for k, v := range tc {
 		// algo func
 		out := p$!{question.frontendQuestionId}(v.in)
+
+		fmt.Println("input :", v.in)
+		fmt.Println("output:", out)
+		fmt.Println("except:", v.out)
+
 		if !reflect.DeepEqual(out, v.out) {
 			t.Errorf("case-%v: except answer: [%v], get answer: [%v]", k, v.out, out)
 		}

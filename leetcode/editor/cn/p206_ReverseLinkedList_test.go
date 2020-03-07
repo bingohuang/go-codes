@@ -60,8 +60,11 @@ func reverseList1(head *ListNode) *ListNode {
 	var newHead, next *ListNode
 
 	for head != nil {
+		// 1. 保存head next的副本
 		next = head.Next
+		// 2. 修改head next指向new head
 		head.Next = newHead
+		// 3. 调整两个头节点
 		newHead = head
 		head = next
 	}
