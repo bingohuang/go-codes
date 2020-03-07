@@ -75,11 +75,6 @@ func Test24(t *testing.T) {
 	}
 }
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 // 算法1
 func swapPairs1(head *ListNode) *ListNode {
 	prev := head
