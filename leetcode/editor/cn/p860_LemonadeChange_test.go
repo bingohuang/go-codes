@@ -1,4 +1,9 @@
 // github.com/bingohuang/go-codes
+/**
+题目: [860]柠檬水找零
+难度: 1
+地址: https://leetcode-cn.com/problems/lemonade-change/
+*/
 package test
 
 import (

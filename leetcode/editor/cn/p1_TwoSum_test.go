@@ -1,4 +1,9 @@
 // github.com/bingohuang/go-codes
+/**
+题目: [1]两数之和
+难度: 1
+地址: https://leetcode-cn.com/problems/two-sum/
+*/
 package test
 
 import (

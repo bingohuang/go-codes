@@ -1,4 +1,9 @@
 // github.com/bingohuang/go-codes
+/**
+题目: [242]有效的字母异位词
+难度: 1
+地址: https://leetcode-cn.com/problems/valid-anagram/
+*/
 package test
 
 import (

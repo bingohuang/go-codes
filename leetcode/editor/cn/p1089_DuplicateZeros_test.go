@@ -1,4 +1,9 @@
 // github.com/bingohuang/go-codes
+/**
+题目: [1089]复写零
+难度: 1
+地址: https://leetcode-cn.com/problems/duplicate-zeros/
+*/
 package test
 
 import (

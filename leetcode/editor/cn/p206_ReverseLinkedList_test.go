@@ -1,4 +1,9 @@
 // github.com/bingohuang/go-codes
+/**
+题目: [206]反转链表
+难度: 1
+地址: https://leetcode-cn.com/problems/reverse-linked-list/
+*/
 package test
 
 import (
