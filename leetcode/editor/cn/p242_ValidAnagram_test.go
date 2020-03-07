@@ -1,3 +1,4 @@
+// github.com/bingohuang/go-codes
 package test
 
 import (
