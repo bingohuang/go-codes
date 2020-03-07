@@ -8,6 +8,11 @@ p$!{question.frontendQuestionId}_$!velocityTool.camelCaseName(${question.titleSl
 ## Code Template
 ```text
 // github.com/bingohuang/go-codes
+/**
+题目: $!{question.formTitle}
+难度: $!{question.level}
+地址: https://leetcode-cn.com/problems/$!{question.titleSlug}/
+*/
 package test
 
 import (
@@ -40,5 +45,4 @@ ${question.code}
 
 /* 题目详情 */
 ${question.content}
-
 ```
