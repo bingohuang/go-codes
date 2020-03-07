@@ -111,6 +111,7 @@ func duplicateZeros(arr []int) {
 
 //leetcode submit region end(Prohibit modification and deletion)
 
+/* 题目详情 */
 //给你一个长度固定的整数数组 arr，请你将该数组中出现的每个零都复写一遍，并将其余的元素向右平移。
 //
 // 注意：请不要在超过该数组长度的位置写入元素。

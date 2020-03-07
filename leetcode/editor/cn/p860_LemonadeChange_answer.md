@@ -1,8 +1,8 @@
 # Go 实现
 
-> https://leetcode-cn.com/problems/lemonade-change/solution/go-by-bingohuang/
-
 > [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/)
+
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p860_LemonadeChange_test.go)
 
 ## 1. 遍历法
 ```go
@@ -38,3 +38,6 @@ func lemonadeChange1(bills []int) bool {
 	return true
 }
 ```
+### 复杂度分析
+- 时间复杂度：O(N)
+- 空间复杂度：O(1)

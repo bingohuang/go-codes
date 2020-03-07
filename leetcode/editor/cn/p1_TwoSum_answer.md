@@ -1,8 +1,8 @@
 # Go 两种实现
 
-> https://leetcode-cn.com/problems/two-sum/solution/go-liang-chong-shi-xian-by-bingohuang/
-
 > [1. 两数之和](https://leetcode-cn.com/problems/two-sum/solution/)
+
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_TwoSum_test.go)
 
 ## 1. 暴力破解法
 ```go

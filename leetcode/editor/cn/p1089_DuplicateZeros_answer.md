@@ -1,8 +1,8 @@
 # Go 三种实现（最短8行代码）
 
-> https://leetcode-cn.com/problems/duplicate-zeros/solution/goyu-yan-de-san-chong-shi-xian-by-bingohuang/
-
 > [1089. 复写零](https://leetcode-cn.com/problems/duplicate-zeros/)
+
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1089_DuplicateZeros_test.go)
 
 ## 1. 暴力破解法
 ```go
@@ -31,6 +31,9 @@ func duplicateZeros(arr []int) {
 	copy(arr, t)
 }
 ```
+### 复杂度分析
+- 时间复杂度：O(N)
+- 空间复杂度：O(N)
 
 ## 2. 两次遍历法
 ```go
@@ -64,6 +67,8 @@ func duplicateZeros(arr []int) {
 	}
 }
 ```
+- 时间复杂度：O(N)
+- 空间复杂度：O(1)
 
 ## 3. append复制法(借用Slice特性，只需8行代码)
 ```go
@@ -77,3 +82,5 @@ func duplicateZeros(arr []int) {
 	}
 }
 ```
+- 时间复杂度：O(N)
+- 空间复杂度：O(1)

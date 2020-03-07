@@ -1,5 +1,5 @@
 /*
-	原题没权限，看别人博客吧：
+	原题没权限，可参考博客吧：
 	https://www.cnblogs.com/grandyang/p/6746528.html
 */
 

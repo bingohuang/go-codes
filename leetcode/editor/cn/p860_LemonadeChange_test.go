@@ -93,6 +93,7 @@ func lemonadeChange(bills []int) bool {
 
 //leetcode submit region end(Prohibit modification and deletion)
 
+/* 题目详情 */
 //在柠檬水摊上，每一杯柠檬水的售价为 5 美元。
 //
 // 顾客排队购买你的产品，（按账单 bills 支付的顺序）一次购买一杯。

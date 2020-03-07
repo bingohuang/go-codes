@@ -1,8 +1,8 @@
 # Go 两种实现
 
-> https://leetcode-cn.com/problems/valid-anagram/solution/go-liang-chong-shi-xian-by-bingohuang-2/
-
 > [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p242_ValidAnagram_test.go)
 
 ## 1. 两个数组比较法
 ```go
@@ -27,6 +27,7 @@ func isAnagram1(s string, t string) bool {
 	return a == b
 }
 ```
+
 ## 2. 一个数组判零法
 // 算法2：map法
 ```go
@@ -55,3 +56,6 @@ func isAnagram2(s string, t string) bool {
 	return true
 }
 ```
+### 复杂度分析 - 以上两种算法复杂度相同
+- 时间复杂度：O(N) 因为访问计数器表是一个固定的时间操作。
+- 空间复杂度：O(1) 尽管我们使用了额外的空间，但是空间的复杂性是 O(1)O(1)，因为无论 NN 有多大，表的大小都保持不变。
