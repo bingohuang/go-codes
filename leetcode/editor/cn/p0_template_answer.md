@@ -3,9 +3,9 @@
 > [00. xx]()
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/xx.go)
 
-## 思路
+## 思路 1: 
 
-## 算法 1. 
+### Go 实现
 ```go
 
 ```

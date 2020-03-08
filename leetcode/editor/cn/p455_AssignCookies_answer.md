@@ -3,7 +3,7 @@
 > [455. 分发饼干](https://leetcode-cn.com/problems/assign-cookies/)
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p455_AssignCookies_test.go)
 
-## 思路
+## 思路1: 贪心算法
 
 ### 问题思考
 为了更明显的判断某个孩子可以被某个饼干满足，思考如下问题:
@@ -23,7 +23,7 @@
 3. 若尝试成功，则换下一个孩子尝试
 4. 直到发现没更多的孩子或者没更多的饼干，循环结束
 
-## 算法 1. 贪心
+### Go 实现
 ```go
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
