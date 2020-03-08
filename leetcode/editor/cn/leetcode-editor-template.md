@@ -37,9 +37,10 @@ func Test$!{question.frontendQuestionId}(t *testing.T) {
 		// algo func
 		out := p$!{question.frontendQuestionId}(v.in)
 
-		fmt.Println("input :", v.in)
-		fmt.Println("output:", out)
-		fmt.Println("except:", v.out)
+		fmt.Printf("case-%v:\n", k)
+		fmt.Printf("\tinput: %v\n", v.in)
+		fmt.Printf("\toutput: %v\n", out)
+		fmt.Printf("\texcept: %v\n", v.out)
 
 		if !reflect.DeepEqual(out, v.out) {
 			t.Errorf("case-%v: except answer: [%v], get answer: [%v]", k, v.out, out)
