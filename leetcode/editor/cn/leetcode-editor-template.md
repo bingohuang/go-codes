@@ -9,7 +9,7 @@ p$!{question.frontendQuestionId}_$!velocityTool.camelCaseName(${question.titleSl
 ```text
 // github.com/bingohuang/go-codes
 /**
-题目: $!{question.formTitle}
+题目: ${question.frontendQuestionId}. ${question.title}
 难度: $!{question.level}
 地址: https://leetcode-cn.com/problems/$!{question.titleSlug}/
 */
@@ -52,4 +52,13 @@ ${question.code}
 
 /* 题目详情 */
 ${question.content}
+```
+参考变量:
+```text
+${question.title}	question title	ex:Two Sum
+${question.titleSlug}	question title slug 	ex:two-sum
+${question.frontendQuestionId}	question serial number
+${question.content}	question content
+${question.code}	question code
+$!velocityTool.camelCaseName(str)	transform str camel case
 ```
