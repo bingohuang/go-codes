@@ -7,23 +7,23 @@
 ## 思路
 - 要求: 已知链表头节点指针head，将链表逆序。(不可申请额外空间)
 
-![](https://pic.leetcode-cn.com/cbdb66b5483a7781ce1cfd4b458f8387fbcfd909704109b3b71e58b4a5bab689.png)
+![](https://leetcode-cn.oss-cn-hangzhou.aliyuncs.com/p206/p206-1.png)
 
 - 整体思路
 
-![](https://pic.leetcode-cn.com/724e40955206daea0b5887bc77d3325ee5a05f9f3a59b2c798880a7bb62e2865.png)
+![](https://leetcode-cn.oss-cn-hangzhou.aliyuncs.com/p206/p206-2.png)
 
 - 关键步骤
 
-![](https://pic.leetcode-cn.com/43cf406296558661126dd04fadac55545d93007ebfa6ce6b37f574b4fdff10f4.png)
+![](https://leetcode-cn.oss-cn-hangzhou.aliyuncs.com/p206/p206-9.png)
 
-![](https://pic.leetcode-cn.com/17337d26cf2c714249b5f2be4419a5095a201049b5b5d156c24d867a75e3f36a.png)
+![](https://leetcode-cn.oss-cn-hangzhou.aliyuncs.com/p206/p206-10.png)
 
-![](https://pic.leetcode-cn.com/415e0d49cb49faf03f53f3c5f3e88e9fd7cf187177dc9c7a02451350e1c8cd92.png)
+![](https://leetcode-cn.oss-cn-hangzhou.aliyuncs.com/p206/p206-11.png)
 
 - 效果
 
-![](https://pic.leetcode-cn.com/78e9b6ecd1a8f371b971e7a42673b297606a39bd4de56fa3f2401c2b5d198699.png)
+![](https://leetcode-cn.oss-cn-hangzhou.aliyuncs.com/p206/p206-12.png)
 
 ## 算法1. 迭代法
 ```go
