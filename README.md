@@ -20,7 +20,7 @@
 ### 栈、队列、堆
 |编号|题名|难度|思路|实现|时间|
 | ------ | ------ | ------ | ------ | ------ | ------ |
-|TODO|[两数之和](https://leetcode-cn.com/problems/two-sum/solution/)|简单|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_d1_TwoSum_answer.md)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_d1_TwoSum_test.go)|2020-03-02|
+|1|[两数之和](https://leetcode-cn.com/problems/two-sum/solution/)|简单|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_d1_TwoSum_answer.md)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_d1_TwoSum_test.go)|2020-03-02|
 
 ### 贪心
 |编号|题名|难度|思路|实现|时间|
