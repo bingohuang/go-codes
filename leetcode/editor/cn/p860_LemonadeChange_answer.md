@@ -1,6 +1,6 @@
 # Go 实现
 
-> [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/)
+> [860. 柠檬水找零 - 简单](https://leetcode-cn.com/problems/lemonade-change/)
 
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p860_LemonadeChange_test.go)
 

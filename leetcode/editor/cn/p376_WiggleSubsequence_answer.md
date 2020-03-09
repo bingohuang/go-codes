@@ -1,6 +1,7 @@
 # Go 实现(思路+贪心算法)
 
-> [376. 摆动序列](https://leetcode-cn.com/problems/wiggle-subsequence/)
+> [376. 摆动序列 - 中等](https://leetcode-cn.com/problems/wiggle-subsequence/)
+
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p376_WiggleSubsequence_test.go)
 
 ## 思路 1: 贪心

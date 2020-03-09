@@ -1,6 +1,6 @@
 # Go 两种实现
 
-> [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+> [242. 有效的字母异位词 - 简单](https://leetcode-cn.com/problems/valid-anagram/)
 
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p242_ValidAnagram_test.go)
 

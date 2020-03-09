@@ -1,6 +1,6 @@
 # Go 实现(含图解)
 
-> [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+> [206. 反转链表 - 简单](https://leetcode-cn.com/problems/reverse-linked-list/)
 
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p206_ReverseLinkedList_test.go)
 
