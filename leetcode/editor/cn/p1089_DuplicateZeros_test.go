@@ -25,6 +25,7 @@ func Test1089(t *testing.T) {
 		"2": IO1089{[]int{1, 2, 3}, []int{1, 2, 3}},
 		"3": IO1089{[]int{1, 2, 0}, []int{1, 2, 0}},
 		"4": IO1089{[]int{8, 4, 5, 0, 0, 0, 0, 7}, []int{8, 4, 5, 0, 0, 0, 0, 0}},
+		"5": IO1089{[]int{0, 0, 0, 0}, []int{0, 0, 0, 0}},
 	}
 
 	for k, v := range tc {
@@ -97,11 +98,13 @@ func duplicateZeros3(arr []int) {
 	fmt.Printf("arr=%v\n", arr)
 	for i := 0; i < len(arr)-1; i++ {
 		if arr[i] == 0 {
+			fmt.Printf("\tlen(arr)=%v, cap(arr)=%v\n", len(arr), cap(arr))
 			arr = append(arr[:i+1], arr[i:len(arr)-1]...)
 			fmt.Printf("\tarr=%v\n", arr)
 			i++
 		}
 	}
+	fmt.Printf("\tlen(arr)=%v, cap(arr)=%v\n", len(arr), cap(arr))
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)

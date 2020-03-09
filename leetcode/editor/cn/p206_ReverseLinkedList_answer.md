@@ -43,5 +43,5 @@ func reverseList1(head *ListNode) *ListNode {
 ```
 
 ### 复杂度分析
-- 时间复杂度：O(N)
-- 空间复杂度：O(1)
+- 时间复杂度：$O(N)$
+- 空间复杂度：$O(1)$
