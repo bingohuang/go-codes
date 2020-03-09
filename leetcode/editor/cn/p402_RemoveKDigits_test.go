@@ -44,25 +44,30 @@ func Test402(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func removeKdigits(num string, k int) string {
-	var stack []uint8
-	var result string
-	for i := 0; i < len(num); i++ {
-		number := num[i] - '0'
+	var stack []uint8               // 使用 slice 作为栈
+	var result string               // 存储最终结果字符串
+	for i := 0; i < len(num); i++ { // 从最高位扫描数字字符串num
+		number := num[i] - '0' // 将字符串转化为整数
+		// 条件：当栈不为空，且栈顶元素大于下一个数字，且 k 还大于0
 		for len(stack) != 0 && stack[len(stack)-1] > number && k > 0 {
-			stack = stack[:len(stack)-1] // pop
-			k--
+			stack = stack[:len(stack)-1] // 弹出栈顶元素
+			k--                          // 剔除一个数字，k 减一
 		}
+		// 条件：如果数字不为空，或者数字为空但是栈不为空
 		if number != 0 || len(stack) != 0 {
-			stack = append(stack, number)
+			stack = append(stack, number) // 入栈
 		}
 	}
+	// 条件：如果栈不空且还能删除数字
 	for len(stack) != 0 && k > 0 {
 		stack = stack[:len(stack)-1]
 		k--
 	}
+	// 将栈中元素转化为字符串
 	for _, v := range stack {
 		result += string('0' + v)
 	}
+	// 注意为空情况
 	if result == "" {
 		return "0"
 	}
