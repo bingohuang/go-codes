@@ -23,14 +23,14 @@ import (
 
 // input and ouput
 type IO$!{question.frontendQuestionId} struct {
-	in []int
+	in []string
 	out []int
 }
 
 func Test$!{question.frontendQuestionId}(t *testing.T) {
 	// add test cases
 	tc := map[string]IO$!{question.frontendQuestionId}{
-		"1": IO$!{question.frontendQuestionId}{[]int{}, []int{}},
+		"1": IO$!{question.frontendQuestionId}{[]string{}, []int{}},
 	}
 
 	for k, v := range tc {
