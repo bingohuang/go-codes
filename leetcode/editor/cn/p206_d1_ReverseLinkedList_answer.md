@@ -2,7 +2,7 @@
 
 > [206. 反转链表 - 简单](https://leetcode-cn.com/problems/reverse-linked-list/)
 
-> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p206_ReverseLinkedList_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p206_d1_ReverseLinkedList_test.go)
 
 ## 思路
 - 要求: 已知链表头节点指针head，将链表逆序。(不可申请额外空间)

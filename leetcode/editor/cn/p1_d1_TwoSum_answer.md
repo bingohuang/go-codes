@@ -2,7 +2,7 @@
 
 > [1. 两数之和 - 简单](https://leetcode-cn.com/problems/two-sum/solution/)
 
-> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_TwoSum_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1_d1_TwoSum_test.go)
 
 ## 1. 暴力破解法
 ```go

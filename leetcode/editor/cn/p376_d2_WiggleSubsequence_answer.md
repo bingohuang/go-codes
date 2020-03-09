@@ -2,7 +2,7 @@
 
 > [376. 摆动序列 - 中等](https://leetcode-cn.com/problems/wiggle-subsequence/)
 
-> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p376_WiggleSubsequence_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p376_d2_WiggleSubsequence_test.go)
 
 ## 思路 1: 贪心
 ### 贪心规律

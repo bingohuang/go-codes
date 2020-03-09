@@ -2,7 +2,7 @@
 
 > [455. 分发饼干 - 简单](https://leetcode-cn.com/problems/assign-cookies/)
 
-> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p455_AssignCookies_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p455_d1_AssignCookies_test.go)
 
 ## 思路1: 贪心算法
 

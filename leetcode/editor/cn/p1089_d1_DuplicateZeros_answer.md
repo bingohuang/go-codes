@@ -2,7 +2,7 @@
 
 > [1089. 复写零 - 简单](https://leetcode-cn.com/problems/duplicate-zeros/)
 
-> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1089_DuplicateZeros_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p1089_d1_DuplicateZeros_test.go)
 
 ## 1. 暴力破解法
 ```go

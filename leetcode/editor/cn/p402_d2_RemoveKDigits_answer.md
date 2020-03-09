@@ -2,7 +2,7 @@
 
 > [402. 移掉K位数字 - 中等](https://leetcode-cn.com/problems/remove-k-digits/)
 
-> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p402_RemoveKDigits_test.go)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p402_d2_RemoveKDigits_test.go)
 
 ## 思路 1: 栈的贪心算法
 
