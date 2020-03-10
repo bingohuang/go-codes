@@ -55,6 +55,7 @@ func Test78(t *testing.T) {
 		fmt.Printf("\toutput: %v\n", out)
 		fmt.Printf("\texcept: %v\n", v.out)
 
+		// 此处的判定用例成功方法可以优化
 		if !reflect.DeepEqual(out, v.out) {
 			t.Errorf("case-%v: except answer: [%v], get answer: [%v]", k, v.out, out)
 		}
