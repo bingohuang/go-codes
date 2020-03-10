@@ -37,7 +37,7 @@ func Test51(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := solveNQueens1(v.in)
+		out := solveNQueens(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -83,6 +83,42 @@ func trackBack1(chessBoard [][]bool, track [][]byte) {
 	}
 }
 
+//leetcode submit region begin(Prohibit modification and deletion)
+var res [][]string
+
+func solveNQueens(n int) [][]string {
+	res = [][]string{}
+	chessBoard := make([][]bool, n)
+	for i := 0; i < n; i++ {
+		chessBoard[i] = make([]bool, n)
+	}
+	trackBack(chessBoard, [][]byte{})
+	return res
+}
+
+func trackBack(chessBoard [][]bool, track [][]byte) {
+	if len(track) == len(chessBoard) {
+		t := make([]string, len(track))
+		for k, bs := range track {
+			t[k] = string(bs)
+		}
+		res = append(res, t)
+	}
+
+	for j := 0; j < len(chessBoard); j++ {
+		if !valid(chessBoard, len(track), j) {
+			continue
+		}
+		bs := getLine(len(chessBoard))
+		bs[j] = 'Q'
+		chessBoard[len(track)][j] = true
+		track = append(track, bs)
+		trackBack(chessBoard, track)
+		track = track[:len(track)-1]
+		chessBoard[len(track)][j] = false
+	}
+}
+
 func valid(chessBoard [][]bool, row, cow int) bool {
 	var i, j int
 	for i = 0; i < row; i++ {
@@ -123,14 +159,6 @@ func getLine(n int) []byte {
 		bs[i] = '.'
 	}
 	return bs
-}
-
-//leetcode submit region begin(Prohibit modification and deletion)
-var res [][]string
-
-func solveNQueens(n int) [][]string {
-
-	return res
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
