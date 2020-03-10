@@ -1,8 +1,12 @@
 # Go 实现
 
 > [51. N皇后 - 困难](https://leetcode-cn.com/problems/n-queens/)
-
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p51_d3_NQueens_test.go)
+
+> [52. N皇后 II - 困难](https://leetcode-cn.com/problems/n-queens-ii/)
+> [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p52_d3_NQueensIi_test.go)
+
+> 注：这两题类似，第二题只需要返回个数，空间复杂度会低一些
 
 ## 思考-TODO
 - 皇后的攻击范围

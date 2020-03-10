@@ -30,6 +30,8 @@
 |编号|题名|难度|思路|实现|时间|
 | ------ | ------ | ------ | ------ | ------ | ------ |
 |78|[子集](https://leetcode-cn.com/problems/subsets/)|中等|[`Go`](https://leetcode-cn.com/problems/subsets/solution/78-go-by-bingohuang/)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p78_d2_Subsets_test.go)|2020-03-09|
+|51|[N皇后](https://leetcode-cn.com/problems/n-queens/)|困难|[`Go`](xxx)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p51_d3_NQueens_test.go)|2020-03-10|
+|52|[N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/)|困难|[`Go`](xxx)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p52_d3_NQueensIi_test.go)|2020-03-10|
 
 ### 二叉树、图
 |编号|题名|难度|思路|实现|时间|
