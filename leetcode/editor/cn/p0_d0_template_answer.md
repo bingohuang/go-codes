@@ -4,7 +4,9 @@
 
 > [完整代码实现](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/xx.go)
 
-## 思路 1: 
+## 思考 
+
+## 算法: 
 
 ### Go 实现
 ```go
