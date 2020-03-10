@@ -21,13 +21,13 @@ type IO78 struct {
 func Test78(t *testing.T) {
 	// add test cases
 	tc := map[string]IO78{
-		"1": IO78{[]int{}, [][]int{
-			{},
-		}},
-		"2": IO78{[]int{1}, [][]int{
-			{},
-			{1},
-		}},
+		//"1": IO78{[]int{}, [][]int{
+		//	{},
+		//}},
+		//"2": IO78{[]int{1}, [][]int{
+		//	{},
+		//	{1},
+		//}},
 		"3": IO78{[]int{1, 2}, [][]int{
 			{},
 			{1},
@@ -61,7 +61,7 @@ func Test78(t *testing.T) {
 	}
 }
 
-// 算法1：回溯1
+// 算法1：回溯, 两次递归
 func subsets1(nums []int) [][]int {
 	result := make([][]int, 0)
 	item := make([]int, 0)
@@ -87,30 +87,56 @@ func generate1(i int, nums []int, item *[]int, result *[][]int) {
 	return
 }
 
-//leetcode submit region begin(Prohibit modification and deletion)
-func subsets(nums []int) [][]int {
+// 算法2：回溯，一层递归+一套循环
+func subsets2(nums []int) [][]int {
 	result := make([][]int, 0)
-	item := make([]int, 0)
 
-	result = append(result, item)
-	generate(0, nums, &item, &result)
+	var generate2 func(pos int, num int, item []int)
+	generate2 = func(pos int, num int, item []int) {
+		if len(item) == num {
+			tmp := make([]int, len(item))
+			copy(tmp, item)
+			result = append(result, tmp)
+			return
+		}
+		for i := pos; i < len(nums); i++ { // 注意：小于nums长度
+			item = append(item, nums[i])
+			generate2(i+1, num, item)
+			item = item[:len(item)-1]
+		}
+	}
+
+	for i := 0; i <= len(nums); i++ {
+		item := make([]int, 0, i) // 注意cap
+		generate2(0, i, item)
+	}
 	return result
 }
 
-func generate(i int, nums []int, item *[]int, result *[][]int) {
-	if i >= len(nums) {
-		return
+//leetcode submit region begin(Prohibit modification and deletion)
+func subsets(nums []int) [][]int {
+	result := make([][]int, 0)
+
+	var generate func(pos int, num int, item []int)
+	generate = func(pos int, num int, item []int) {
+		if len(item) == num {
+			tmp := make([]int, len(item))
+			copy(tmp, item)
+			result = append(result, tmp)
+			return
+		}
+		for i := pos; i < len(nums); i++ { // 注意：小于nums长度
+			item = append(item, nums[i])
+			generate(i+1, num, item)
+			item = item[:len(item)-1]
+		}
 	}
-	*item = append(*item, nums[i])
-	temp := make([]int, len(*item))
-	for i, v := range *item {
-		temp[i] = v
+
+	for i := 0; i <= len(nums); i++ {
+		item := make([]int, 0, i) // 注意cap
+		generate(0, i, item)
 	}
-	*result = append(*result, temp)
-	generate(i+1, nums, item, result)
-	*item = (*item)[:len(*item)-1]
-	generate(i+1, nums, item, result)
-	return
+	return result
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
