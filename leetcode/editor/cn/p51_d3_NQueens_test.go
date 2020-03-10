@@ -51,75 +51,75 @@ func Test51(t *testing.T) {
 }
 
 func solveNQueens1(n int) [][]string {
-	res = [][]string{}
+	res51 = [][]string{}
 	chessBoard := make([][]bool, n)
 	for i := 0; i < n; i++ {
 		chessBoard[i] = make([]bool, n)
 	}
-	trackBack1(chessBoard, [][]byte{})
-	return res
+	trackBack51_1(chessBoard, [][]byte{})
+	return res51
 }
 
-func trackBack1(chessBoard [][]bool, track [][]byte) {
+func trackBack51_1(chessBoard [][]bool, track [][]byte) {
 	if len(track) == len(chessBoard) {
 		t := make([]string, len(track))
 		for k, bs := range track {
 			t[k] = string(bs)
 		}
-		res = append(res, t)
+		res51 = append(res51, t)
 	}
 
 	for j := 0; j < len(chessBoard); j++ {
-		if !valid(chessBoard, len(track), j) {
+		if !valid51(chessBoard, len(track), j) {
 			continue
 		}
-		bs := getLine(len(chessBoard))
+		bs := getLine51(len(chessBoard))
 		bs[j] = 'Q'
 		chessBoard[len(track)][j] = true
 		track = append(track, bs)
-		trackBack1(chessBoard, track)
+		trackBack51_1(chessBoard, track)
 		track = track[:len(track)-1]
 		chessBoard[len(track)][j] = false
 	}
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-var res [][]string
-
 func solveNQueens(n int) [][]string {
-	res = [][]string{}
+	res51 = [][]string{}
 	chessBoard := make([][]bool, n)
 	for i := 0; i < n; i++ {
 		chessBoard[i] = make([]bool, n)
 	}
-	trackBack(chessBoard, [][]byte{})
-	return res
+	trackBack51(chessBoard, [][]byte{})
+	return res51
 }
 
-func trackBack(chessBoard [][]bool, track [][]byte) {
+var res51 [][]string
+
+func trackBack51(chessBoard [][]bool, track [][]byte) {
 	if len(track) == len(chessBoard) {
 		t := make([]string, len(track))
 		for k, bs := range track {
 			t[k] = string(bs)
 		}
-		res = append(res, t)
+		res51 = append(res51, t)
 	}
 
 	for j := 0; j < len(chessBoard); j++ {
-		if !valid(chessBoard, len(track), j) {
+		if !valid51(chessBoard, len(track), j) {
 			continue
 		}
-		bs := getLine(len(chessBoard))
+		bs := getLine51(len(chessBoard))
 		bs[j] = 'Q'
 		chessBoard[len(track)][j] = true
 		track = append(track, bs)
-		trackBack(chessBoard, track)
+		trackBack51(chessBoard, track)
 		track = track[:len(track)-1]
 		chessBoard[len(track)][j] = false
 	}
 }
 
-func valid(chessBoard [][]bool, row, cow int) bool {
+func valid51(chessBoard [][]bool, row, cow int) bool {
 	var i, j int
 	for i = 0; i < row; i++ {
 		if chessBoard[i][cow] == true {
@@ -153,7 +153,7 @@ func valid(chessBoard [][]bool, row, cow int) bool {
 	return true
 }
 
-func getLine(n int) []byte {
+func getLine51(n int) []byte {
 	bs := make([]byte, n)
 	for i := 0; i < n; i++ {
 		bs[i] = '.'
