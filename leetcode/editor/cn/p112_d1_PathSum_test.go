@@ -92,24 +92,14 @@ func Test112(t *testing.T) {
  * }
  */
 func hasPathSum(root *TreeNode, sum int) bool {
-	var result bool
-	var pathValue int
-	var preOrder func(node *TreeNode)
-	preOrder = func(node *TreeNode) {
-		if result || node == nil {
-			return
-		}
-		pathValue += node.Val
-		if node.Left == nil && node.Right == nil && pathValue == sum {
-			result = true
-			return
-		}
-		preOrder(node.Left)
-		preOrder(node.Right)
-		pathValue -= node.Val
+	if root == nil {
+		return false
 	}
-	preOrder(root)
-	return result
+	sum -= root.Val
+	if root.Left == nil && root.Right == nil {
+		return sum == 0
+	}
+	return hasPathSum(root.Left, sum) || hasPathSum(root.Right, sum)
 }
 
 //leetcode submit region end(Prohibit modification and deletion)

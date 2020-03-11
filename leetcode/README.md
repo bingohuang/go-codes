@@ -36,7 +36,8 @@
 ### 二叉树、图
 |编号|题名|难度|思路|实现|时间|
 | ------ | ------ | ------ | ------ | ------ | ------ |
-|xxx|[xxx](xxx)|简单|[`Go`](xxx)|[`Go`](xxx)|2020-xx-xx|
+|112|[路径总和](https://leetcode-cn.com/problems/path-sum/)|简单|[`Go`](xxx)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p112_d1_PathSum_test.go)|2020-03-11|
+|113|[路径总和 II](https://leetcode-cn.com/problems/path-sum/)|简单|[`Go`](xxx)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p112_d1_PathSum_test.go)|2020-03-11|
 
 ### 二分查找、二分查找树
 |编号|题名|难度|思路|实现|时间|
