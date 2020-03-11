@@ -14,8 +14,8 @@
 - 棋盘与皇后表示
 
 
-## 算法 1: 回溯+剪枝算法（比较耗时耗空间）
-[参考题解](https://leetcode-cn.com/problems/n-queens/solution/golanghui-su-by-sealyun/)
+## 算法 1: 回溯+暴力算法（比较耗时耗空间）
+参考[题解](https://leetcode-cn.com/problems/n-queens/solution/golanghui-su-by-sealyun/)：
 
 ```go
 for j in 列：
