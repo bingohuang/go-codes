@@ -16,7 +16,7 @@
 ### 栈、队列、堆
 |编号|题名|难度|思路|实现|时间|
 | ------ | ------ | ------ | ------ | ------ | ------ |
-|xxx|[xxx](xxx)|简单|[`Go`](xxx)|[`Go`](xxx)|2020-xx-xx|
+|225|[用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)|简单|[`Go`](xxx)|[`Go`](https://github.com/bingohuang/go-codes/blob/master/leetcode/editor/cn/p225_d1_ImplementStackUsingQueues_test.go)|2020-03-11|
 
 ### 贪心
 |编号|题名|难度|思路|实现|时间|
