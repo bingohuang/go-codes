@@ -59,8 +59,8 @@ func slice4() {
 	s2 := s            // 1 2
 	s2 = append(s2, 3) // 1 2 3
 	fmt.Println("s2:", len(s2), cap(s2))
-	sliceAddOne(s)
-	sliceAddOne(s2)
+	sliceAddOne(s)  // 1 2
+	sliceAddOne(s2) // 2,3,4
 	fmt.Println(s, s2)
 }
 
