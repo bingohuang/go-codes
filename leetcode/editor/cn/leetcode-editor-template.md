@@ -2,7 +2,7 @@
 
 ## Code File Name
 ```text
-p$!{question.frontendQuestionId}_$!velocityTool.camelCaseName(${question.titleSlug})_test
+p$!{question.frontendQuestionId}_d$!{question.level}_$!velocityTool.camelCaseName(${question.titleSlug})_test
 ```
 
 ## Code Template
