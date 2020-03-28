@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	//map1()
+	map1()
 	//map2()
-	map3()
+	//map3()
 }
 
 func map1() {
@@ -14,7 +14,7 @@ func map1() {
 	m[2] = "w"
 	fmt.Println(m)
 	for k := range m {
-		fmt.Println(k)
+		//fmt.Println(k)
 		m[k] = "k"
 	}
 	fmt.Println(m)

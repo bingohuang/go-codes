@@ -1,12 +1,13 @@
 package main
 
 import (
-	_ "fmt"
+	"fmt"
 )
 
 func main() {
 	a()
 	fmt.Println(c())
+	fmt.Println(d())
 
 }
 
@@ -20,5 +21,10 @@ func a() {
 
 func c() (i int) {
 	defer func() { i++ }()
-	return 1
+	return 1 // 2
+}
+
+func d() (i int) {
+	defer func() { i++ }()
+	return i // 1
 }
