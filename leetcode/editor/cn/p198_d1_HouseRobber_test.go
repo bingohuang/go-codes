@@ -41,21 +41,45 @@ func Test198(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-var memo []int
-
 func rob(nums []int) int {
-
 	// 1
 	//return dp1(nums, 0)
 
 	// 2
-	memo = make([]int, len(nums))
-	// 这个初始化必要
-	for i := range memo {
-		memo[i] = -1
+	//memo = make([]int, len(nums))
+	//// 这个初始化必要
+	//for i := range memo {
+	//	memo[i] = -1
+	//}
+	//return dp2(nums, 0)
+
+	// 3
+	//n := len(nums)
+	//dp := make([]int, n+2)
+	//for i := n-1;i>=0;i--{
+	//	dp[i] = max(dp[i+1], nums[i] + dp[i+2])
+	//}
+	//return dp[0]
+
+	// 4
+	n := len(nums)
+	dp_i, dp_i_1, dp_i_2 := 0, 0, 0
+	for i := n - 1; i >= 0; i-- {
+		dp_i = max(dp_i_1, nums[i]+dp_i_2)
+		dp_i_2 = dp_i_1
+		dp_i_1 = dp_i
 	}
-	return dp2(nums, 0)
+	return dp_i
 }
+
+func max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
+var memo []int
 
 func dp2(nums []int, start int) int {
 	if start >= len(nums) {
