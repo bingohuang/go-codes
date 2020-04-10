@@ -27,7 +27,7 @@ func Test198(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := rob(v.in)
+		out := rob1(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -41,7 +41,8 @@ func Test198(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-func rob(nums []int) int {
+// TODO:
+func rob1(nums []int) int {
 	// 1
 	//return dp1(nums, 0)
 
@@ -65,14 +66,14 @@ func rob(nums []int) int {
 	n := len(nums)
 	dp_i, dp_i_1, dp_i_2 := 0, 0, 0
 	for i := n - 1; i >= 0; i-- {
-		dp_i = max(dp_i_1, nums[i]+dp_i_2)
+		dp_i = max1(dp_i_1, nums[i]+dp_i_2)
 		dp_i_2 = dp_i_1
 		dp_i_1 = dp_i
 	}
 	return dp_i
 }
 
-func max(x, y int) int {
+func max1(x, y int) int {
 	if x < y {
 		return y
 	}
