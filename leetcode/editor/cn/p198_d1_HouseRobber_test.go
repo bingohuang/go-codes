@@ -41,7 +41,7 @@ func Test198(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-// TODO:
+// TODO: 提交请修改函数名为rob
 func rob1(nums []int) int {
 	// 1
 	//return dp1(nums, 0)

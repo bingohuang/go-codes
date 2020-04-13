@@ -41,7 +41,7 @@ func Test213(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-// TODO:
+// TODO: 提交请修改函数名为rob
 func rob2(nums []int) int {
 	n := len(nums)
 	if n == 1 {

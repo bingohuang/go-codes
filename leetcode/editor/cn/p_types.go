@@ -60,3 +60,16 @@ func compareList(a *ListNode, b *ListNode) bool {
 	}
 	return true
 }
+
+/**
+比较大小
+*/
+func max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
+// 备忘录Map
+var memoMap = make(map[*TreeNode]int)
