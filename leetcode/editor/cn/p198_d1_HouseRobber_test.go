@@ -27,7 +27,7 @@ func Test198(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := rob1(v.in)
+		out := rob198(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -41,8 +41,14 @@ func Test198(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-// TODO: 提交请修改函数名为rob
-func rob1(nums []int) int {
+// TODO: 提交请将max注释打开，并修改函数名为rob
+//func max(x, y int) int {
+//	if x < y {
+//		return y
+//	}
+//	return x
+//}
+func rob198(nums []int) int {
 	// 1
 	//return dp1(nums, 0)
 
@@ -55,6 +61,8 @@ func rob1(nums []int) int {
 	//return dp2(nums, 0)
 
 	// 3
+	// 执行耗时:0 ms,击败了100.00% 的Go用户
+	// 内存消耗:2 MB,击败了33.33% 的Go用户
 	//n := len(nums)
 	//dp := make([]int, n+2)
 	//for i := n-1;i>=0;i--{
@@ -63,53 +71,64 @@ func rob1(nums []int) int {
 	//return dp[0]
 
 	// 4
+	// 执行耗时:0 ms,击败了100.00% 的Go用户
+	// 内存消耗:2 MB,击败了33.33% 的Go用户
 	n := len(nums)
-	dp_i, dp_i_1, dp_i_2 := 0, 0, 0
-	for i := n - 1; i >= 0; i-- {
-		dp_i = max1(dp_i_1, nums[i]+dp_i_2)
-		dp_i_2 = dp_i_1
-		dp_i_1 = dp_i
-	}
-	return dp_i
-}
-
-func max1(x, y int) int {
-	if x < y {
-		return y
-	}
-	return x
-}
-
-var memo []int
-
-func dp2(nums []int, start int) int {
-	if start >= len(nums) {
+	if n == 0 {
 		return 0
 	}
-	if memo[start] != -1 {
-		return memo[start]
+	if n == 1 {
+		return nums[0]
 	}
-	res1 := dp2(nums, start+1)
-	res2 := nums[start] + dp2(nums, start+2)
-	if res2 > res1 {
-		res1 = res2
+	dp := make([]int, n)
+	dp[0] = nums[0]
+	dp[1] = max(nums[0], nums[1])
+	for i := 2; i < len(nums); i++ {
+		dp[i] = max(dp[i-2]+nums[i], dp[i-1])
 	}
-	memo[start] = res1
-	return res1
+	return dp[n-1]
+
+	// 5
+	//n := len(nums)
+	//dp_i, dp_i_1, dp_i_2 := 0, 0, 0
+	//for i := n - 1; i >= 0; i-- {
+	//	dp_i = max(dp_i_1, nums[i]+dp_i_2)
+	//	dp_i_2 = dp_i_1
+	//	dp_i_1 = dp_i
+	//}
+	//return dp_i
 }
 
-// Time Limit Exceeded
-func dp1(nums []int, start int) int {
-	if start >= len(nums) {
-		return 0
-	}
-	rob := nums[start] + dp1(nums, start+2)
-	norob := dp1(nums, start+1)
-	if rob > norob {
-		return rob
-	}
-	return norob
-}
+//var memo []int
+
+//func dp2(nums []int, start int) int {
+//	if start >= len(nums) {
+//		return 0
+//	}
+//	if memo[start] != -1 {
+//		return memo[start]
+//	}
+//	res1 := dp2(nums, start+1)
+//	res2 := nums[start] + dp2(nums, start+2)
+//	if res2 > res1 {
+//		res1 = res2
+//	}
+//	memo[start] = res1
+//	return res1
+//}
+//
+//// Time Limit Exceeded
+//func dp1(nums []int, start int) int {
+//	if start >= len(nums) {
+//		return 0
+//	}
+//	rob := nums[start] + dp1(nums, start+2)
+//	norob := dp1(nums, start+1)
+//	if rob > norob {
+//		return rob
+//	}
+//	return norob
+//}
 
 //leetcode submit region end(Prohibit modification and deletion)
 

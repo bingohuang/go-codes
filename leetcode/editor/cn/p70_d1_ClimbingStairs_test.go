@@ -22,9 +22,9 @@ func Test70(t *testing.T) {
 	// add test cases
 	tc := map[string]IO70{
 		//"1": {1, 1},
-		//"2": {2, 2},
+		"2": {2, 2},
 		//"3": {3, 3},
-		"4": {4, 5},
+		//"4": {4, 5},
 	}
 
 	for k, v := range tc {
