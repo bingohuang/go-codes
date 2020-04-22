@@ -27,7 +27,7 @@ func Test198(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := rob198(v.in)
+		out := rob1(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -48,7 +48,7 @@ func Test198(t *testing.T) {
 //	}
 //	return x
 //}
-func rob198(nums []int) int {
+func rob1(nums []int) int {
 	// 1
 	//return dp1(nums, 0)
 

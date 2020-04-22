@@ -42,30 +42,29 @@ func Test213(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 // TODO: 提交请修改函数名为rob
+//func max(x, y int) int {
+//	if x < y {
+//		return y
+//	}
+//	return x
+//}
 func rob2(nums []int) int {
 	n := len(nums)
 	if n == 1 {
 		return nums[0]
 	}
-	return max2(rob2Range(nums, 0, n-2),
+	return max(rob2Range(nums, 0, n-2),
 		rob2Range(nums, 1, n-1))
 }
 
 func rob2Range(nums []int, start, end int) int {
 	dp_i, dp_i_1, dp_i_2 := 0, 0, 0
 	for i := end; i >= start; i-- {
-		dp_i = max2(dp_i_1, nums[i]+dp_i_2)
+		dp_i = max(dp_i_1, nums[i]+dp_i_2)
 		dp_i_2 = dp_i_1
 		dp_i_1 = dp_i
 	}
 	return dp_i
-}
-
-func max2(x, y int) int {
-	if x < y {
-		return y
-	}
-	return x
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
