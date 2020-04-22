@@ -8,6 +8,7 @@ package test
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"testing"
 )
@@ -43,13 +44,53 @@ func Test52(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func totalNQueens(n int) int {
-	res52 = [][]string{}
-	chessBoard := make([][]bool, n)
-	for i := 0; i < n; i++ {
-		chessBoard[i] = make([]bool, n)
+	// 20200310:
+	// 执行耗时:4 ms
+	// 内存消耗:2.6 MB
+	//res52 = [][]string{}
+	//chessBoard := make([][]bool, n)
+	//for i := 0; i < n; i++ {
+	//	chessBoard[i] = make([]bool, n)
+	//}
+	//trackBack52(chessBoard, [][]byte{})
+	//return len(res52)
+
+	// 20200422：考虑做一版优化
+	// 执行耗时:0 ms,击败了100.00% 的Go用户
+	// 内存消耗:2 MB,击败了100.00% 的Go用户
+	count := 0
+	// 从第一行开始直到第 row 行的前一行为止，看那一行所放置的皇后是否在 col 列上，或者是不是在它的对角线上
+	check := func(row, col int, columns []int) bool {
+		for r := 0; r < row; r++ {
+			if columns[r] == col || row-r == int(math.Abs(float64(columns[r]-col))) {
+				return false
+			}
+		}
+		return true
 	}
-	trackBack52(chessBoard, [][]byte{})
-	return len(res52)
+	var backtracking func(n, row int, columns []int)
+	backtracking = func(n, row int, columns []int) {
+		// 是否在所有n行里都摆放好了皇后？
+		if row == n {
+			count++ // 找到了新的摆放方法
+			return
+		}
+		// 尝试着将皇后放置在当前行中的每一列
+		for col := 0; col < n; col++ {
+			columns[row] = col
+
+			// 检查是否合法，如果合法就继续到下一行
+			if check(row, col, columns) {
+				backtracking(n, row+1, columns)
+			}
+			// 如果不合法，就不要把皇后放在这列中（回溯）
+			columns[row] = -1
+		}
+	}
+	columns := make([]int, n)
+	backtracking(n, 0, columns)
+
+	return count
 }
 
 var res52 [][]string
