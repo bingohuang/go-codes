@@ -72,23 +72,23 @@ func longestPalindromeSubseq(s string) int {
 	for l := 2; l <= n; l++ {
 		for i := 0; i < n-l+1; i++ {
 			j := i + l - 1
-			if s[i] == s[j] {
-				dp[i][j] = 2
-				if l != 2 {
-					dp[i][j] += dp[i+1][j-1]
-				}
-			} else {
-				dp[i][j] = max(dp[i+1][j], dp[i][j-1])
-			}
+			updateDP(dp, s, l, i, j)
 		}
 	}
 
 	return dp[0][n-1]
 }
 
-//func updateDP(dp [][]int, s string, i, j int)  {
-//
-//}
+func updateDP(dp [][]int, s string, l, i, j int) {
+	if s[i] == s[j] {
+		dp[i][j] = 2
+		if l != 2 {
+			dp[i][j] += dp[i+1][j-1]
+		}
+	} else {
+		dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+	}
+}
 
 //func max(x, y int) int {
 //	if x < y {
