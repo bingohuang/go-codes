@@ -21,8 +21,9 @@ type IO300 struct {
 func Test300(t *testing.T) {
 	// add test cases
 	tc := map[string]IO300{
-		"1": IO300{[]int{10, 9, 2, 5, 3, 7, 101, 18}, 4},
+		//"1": IO300{[]int{10, 9, 2, 5, 3, 7, 101, 18}, 4},
 		"2": IO300{[]int{1, 3, 2, 3, 1, 4}, 4},
+		//"3": IO300{[]int{4, 10, 4, 3, 8, 9}, 3},
 	}
 
 	for k, v := range tc {
@@ -42,27 +43,49 @@ func Test300(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func lengthOfLIS(nums []int) int {
-	// 20200422-优化
-	//执行耗时:8 ms,击败了68.83% 的Go用户
-	//内存消耗:2.4 MB,击败了50.00% 的Go用户
+	// 20200422-栈实现
+	// 执行耗时:0 ms,击败了100.00% 的Go用户
+	// 内存消耗:2.4 MB,击败了75.00% 的Go用户
 	if len(nums) == 0 {
 		return 0
 	}
-	dp := make([]int, len(nums))
-	dp[0] = 1
-	lis := 1
+	stack := make([]int, 0, len(nums))
+	stack = append(stack, nums[0])
 	for i := 1; i < len(nums); i++ {
-		dp[i] = 1
-		for j := 0; j < i; j++ {
-			if nums[i] > nums[j] && dp[i] < dp[j]+1 {
-				dp[i] = dp[j] + 1
+		if nums[i] > stack[len(stack)-1] {
+			stack = append(stack, nums[i])
+		} else {
+			for j := 0; j < len(stack); j++ {
+				if stack[j] >= nums[i] {
+					stack[j] = nums[i]
+					break
+				}
 			}
 		}
-		if lis < dp[i] {
-			lis = dp[i]
-		}
 	}
-	return lis
+	return len(stack)
+
+	// 20200422-优化
+	// 执行耗时:8 ms,击败了68.83% 的Go用户
+	// 内存消耗:2.4 MB,击败了50.00% 的Go用户
+	//if len(nums) == 0 {
+	//	return 0
+	//}
+	//dp := make([]int, len(nums))
+	//dp[0] = 1
+	//lis := 1
+	//for i := 1; i < len(nums); i++ {
+	//	dp[i] = 1
+	//	for j := 0; j < i; j++ {
+	//		if nums[i] > nums[j] && dp[i] < dp[j]+1 {
+	//			dp[i] = dp[j] + 1
+	//		}
+	//	}
+	//	if lis < dp[i] {
+	//		lis = dp[i]
+	//	}
+	//}
+	//return lis
 
 	// 20200403 O(N^2)
 	//dp := make([]int, len(nums))
