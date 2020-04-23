@@ -1,8 +1,8 @@
 // github.com/bingohuang/go-codes
 /**
-题目: [252]会议室
+题目: 252. 会议室
 难度: 1
-地址: https://leetcode-cn.com/problems/meeting-rooms
+地址: https://leetcode-cn.com/problems/meeting-rooms/
 */
 package test
 
@@ -38,6 +38,9 @@ func Test252(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func canAttendMeetings(intervals [][]int) bool {
+	// 20200422
+	// 执行耗时:16 ms,击败了31.37% 的Go用户
+	// 内存消耗:6.2 MB,击败了100.00% 的Go用户
 	sort.Slice(intervals, func(i, j int) bool {
 		if intervals[i][0] < intervals[j][0] {
 			return true
@@ -51,20 +54,24 @@ func canAttendMeetings(intervals [][]int) bool {
 		}
 	}
 	return true
+
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
 
 /* 题目详情 */
-//Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
-// determine if a person could attend all meetings.
+//给定一个会议时间安排的数组，每个会议时间都会包括开始和结束的时间 [[s1,e1],[s2,e2],...] (si < ei)，请你判断一个人是否能够参加
+//这里面的全部会议。
 //
-//Example 1:
+// 示例 1:
 //
-//Input: [[0,30],[5,10],[15,20]]
-//Output: false
-//Example 2:
+// 输入: [[0,30],[5,10],[15,20]]
+//输出: false
 //
-//Input: [[7,10],[2,4]]
-//Output: true
-//NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
+//
+// 示例 2:
+//
+// 输入: [[7,10],[2,4]]
+//输出: true
+//
+// Related Topics 排序

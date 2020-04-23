@@ -1,8 +1,8 @@
 // github.com/bingohuang/go-codes
 /**
-题目: [253]会议室
+题目: 253. 会议室 II
 难度: 2
-地址: https://leetcode-cn.com/problems/meeting-rooms-ii
+地址: https://leetcode-cn.com/problems/meeting-rooms-ii/
 */
 package test
 
@@ -38,6 +38,14 @@ func Test253(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func minMeetingRooms(intervals [][]int) int {
+	// 20200423
+	// 执行耗时:8 ms,击败了94.17% 的Go用户
+	// 内存消耗:5.3 MB,击败了100.00% 的Go用户
+
+	if len(intervals) == 0 {
+		return 0
+	}
+
 	// 将输入的一系列会议按照会议的起始时间排序。
 	sort.Slice(intervals, func(i, j int) bool {
 		if intervals[i][0] < intervals[j][0] {
@@ -66,6 +74,7 @@ func minMeetingRooms(intervals [][]int) int {
 	}
 	// 最小堆里的会议室个数就是要求的答案，即最少的会议个数。
 	return h.Len()
+
 }
 
 type IntHeap [][]int
@@ -91,15 +100,16 @@ func (h *IntHeap) Pop() interface{} {
 //leetcode submit region end(Prohibit modification and deletion)
 
 /* 题目详情 */
-//Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
-// find the minimum number of conference rooms required.
+//给定一个会议时间安排的数组，每个会议时间都会包括开始和结束的时间 [[s1,e1],[s2,e2],...] (si < ei)，为避免会议冲突，同时要考虑
+//充分利用会议室资源，请你计算至少需要多少间会议室，才能满足这些会议安排。
 //
-//Example 1:
+// 示例 1:
 //
-//Input: [[0, 30],[5, 10],[15, 20]]
-//Output: 2
-//Example 2:
+// 输入: [[0, 30],[5, 10],[15, 20]]
+//输出: 2
 //
-//Input: [[7,10],[2,4]]
-//Output: 1
-//NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
+// 示例 2:
+//
+// 输入: [[7,10],[2,4]]
+//输出: 1
+// Related Topics 堆 贪心算法 排序
