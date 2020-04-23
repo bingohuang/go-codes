@@ -21,8 +21,8 @@ type IO316 struct {
 func Test316(t *testing.T) {
 	// add test cases
 	tc := map[string]IO316{
-		//"1": {"bcabc", "abc"},
-		//"2": {"cbacdcbc", "acdb"},
+		"1": {"bcabc", "abc"},
+		"2": {"cbacdcbc", "acdb"},
 		"3": {"bbcaac", "bac"},
 	}
 
@@ -50,21 +50,16 @@ func removeDuplicateLetters(s string) string {
 	//内存消耗 : 2.2 MB
 	stack := make([]rune, 0)
 	seen := make(map[rune]bool)
-	occur := make(map[rune]int)
-	for _, v := range s {
-		if _, ok := occur[v]; !ok {
-			occur[v] = 1
-		} else {
-			occur[v]++
-		}
+	lastOccur := make(map[rune]int)
+	for i, v := range s {
+		lastOccur[v] = i
 	}
-	for _, v := range s {
+	for i, v := range s {
 		if _, ok := seen[v]; !ok {
 			for len(stack) > 0 && v < stack[len(stack)-1] {
 				e := stack[len(stack)-1]
-				if o, ok := occur[e]; ok && o > 1 {
+				if o, ok := lastOccur[e]; ok && o > i {
 					stack = stack[:len(stack)-1]
-					occur[e]--
 					delete(seen, e)
 				} else {
 					break
@@ -72,8 +67,6 @@ func removeDuplicateLetters(s string) string {
 			}
 			stack = append(stack, v)
 			seen[v] = true
-		} else {
-			occur[v]--
 		}
 	}
 	res := ""
