@@ -50,7 +50,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	// 内存消耗:6 MB,击败了18.18% 的Go用户
 	// 执行耗时:16 ms,击败了79.17% 的Go用户
 	// 内存消耗:6 MB,击败了18.18% 的Go用户
-	res := merge(nums1, nums2)
+	res := merge4(nums1, nums2)
 	if len(res)%2 == 0 {
 		return float64(res[len(res)/2-1]+res[len(res)/2]) / 2.0
 	} else {
@@ -62,7 +62,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 
 }
 
-func merge(left []int, right []int) []int {
+func merge4(left []int, right []int) []int {
 	l, r := 0, 0
 	var res []int
 	// 注意：[左右]对比，是指左的第一个元素，与右边的第一个元素进行对比，
