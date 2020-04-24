@@ -7,9 +7,9 @@
 package test
 
 import (
+	"container/heap"
 	"fmt"
 	"reflect"
-	"sort"
 	"testing"
 )
 
@@ -48,8 +48,33 @@ func findKthLargest(nums []int, k int) int {
 	// 20200422: 解法 1：直接将数组进行排序，然后得出结果。
 	// 执行耗时:8 ms,击败了92.06% 的Go用户
 	// 内存消耗:3.5 MB,击败了100.00% 的Go用户
-	sort.Ints(nums)
-	return nums[len(nums)-k]
+	//sort.Ints(nums)
+	//return nums[len(nums)-k]
+
+	// 20200424: 用堆
+	// 执行耗时:8 ms,击败了91.77% 的Go用户
+	// 内存消耗:4.3 MB,击败了9.09% 的Go用户
+	h := &IntHeap215{}
+	heap.Init(h) // 这句话可要可不要？
+	for _, v := range nums {
+		heap.Push(h, v)
+		if h.Len() > k {
+			heap.Pop(h)
+		}
+	}
+	return (*h)[0]
+}
+
+type IntHeap215 []int
+
+func (h IntHeap215) Len() int            { return len(h) }
+func (h IntHeap215) Less(i, j int) bool  { return h[i] < h[j] }
+func (h IntHeap215) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *IntHeap215) Push(x interface{}) { *h = append(*h, x.(int)) }
+func (h *IntHeap215) Pop() interface{} {
+	x := (*h)[len(*h)-1]
+	*h = (*h)[:len(*h)-1]
+	return x
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
