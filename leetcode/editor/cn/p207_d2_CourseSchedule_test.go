@@ -111,6 +111,44 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	// DFS
 	// 执行耗时:20 ms,击败了45.76% 的Go用户
 	// 内存消耗:5.7 MB,击败了100.00% 的Go用户
+	//flags := make([]int, numCourses)
+	//var dfs func(course int) bool
+	//dfs = func(course int) bool {
+	//	if flags[course] == 1 {
+	//		return false
+	//	}
+	//	if flags[course] == -1 {
+	//		return true
+	//	}
+	//	flags[course] = 1
+	//	for _, req := range prerequisites {
+	//		if req[0] == course && !dfs(req[1]) {
+	//			return false
+	//		}
+	//		/* 以下写法也是对的；两种写法都是对course邻居做判断
+	//		if req[1] == course && !dfs(req[0], prerequisites, flags) {
+	//			return false
+	//		}*/
+	//	}
+	//	flags[course] = -1
+	//	return true
+	//}
+	//for i := 0; i < numCourses; i++ {
+	//	if !dfs(i) {
+	//		return false
+	//	}
+	//}
+	//return true
+
+	// 20200424
+	// DFS-优化
+	// 执行耗时:12 ms,击败了93.22% 的Go用户
+	// 内存消耗:6.1 MB,击败了100.00% 的Go用户
+	neighbors := make([][]int, numCourses)
+	for _, req := range prerequisites {
+		// 写成 neighbors[req[1]] = append(neighbors[req[1]], req[0]) 也对，都是统计邻居
+		neighbors[req[0]] = append(neighbors[req[0]], req[1])
+	}
 	flags := make([]int, numCourses)
 	var dfs func(course int) bool
 	dfs = func(course int) bool {
@@ -121,14 +159,10 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 			return true
 		}
 		flags[course] = 1
-		for _, req := range prerequisites {
-			if req[0] == course && !dfs(req[1]) {
+		for _, neighbor := range neighbors[course] {
+			if !dfs(neighbor) {
 				return false
 			}
-			/* 以下写法也是对的；两种写法都是对course邻居做判断
-			if req[1] == course && !dfs(req[0], prerequisites, flags) {
-				return false
-			}*/
 		}
 		flags[course] = -1
 		return true
