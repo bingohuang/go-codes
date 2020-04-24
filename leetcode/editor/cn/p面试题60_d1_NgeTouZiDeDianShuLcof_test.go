@@ -42,7 +42,7 @@ func Test面试题60(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-func twoSum(n int) []float64 {
+func twoSum60(n int) []float64 {
 	// 20200424
 	// 执行耗时:0 ms,击败了100.00% 的Go用户
 	// 内存消耗:2.2 MB,击败了100.00% 的Go用户
