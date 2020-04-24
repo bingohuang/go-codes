@@ -8,7 +8,6 @@ package test
 
 import (
 	"container/list"
-	"math"
 	"testing"
 )
 
