@@ -6,8 +6,9 @@ func main() {
 	//slice1()
 	//slice2()
 	//slice3()
-	//slice4()
-	slice5()
+	slice4()
+	//slice5()
+	//slice6()
 
 }
 
@@ -94,4 +95,14 @@ func slice5() {
 	s4 = append(s4, 0)
 	fmt.Println(s)
 	fmt.Println(s4)
+}
+
+func slice6() {
+	intSlice := []int{1, 2, 3}
+	intSlice2 := intSlice[1:3]
+	intSlice[1] = 0
+	intSlice2 = append(intSlice2, 4)
+	intSlice2[1] = 6
+	fmt.Println("intSlice=", intSlice)
+	fmt.Println("intSlice2=", intSlice2)
 }
