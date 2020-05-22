@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	map1()
+	//map1()
 	//map2()
 	//map3()
+	map4()
 }
 
 func map1() {
@@ -42,4 +43,22 @@ func map3() {
 		delete(m, k)
 	}
 	m = nil
+}
+
+func map4() {
+	//var m map[string]int
+	//m["one"] = 1
+	//fmt.Println(m)
+
+	m := make(map[int]int)
+	m[1] = 1
+
+	v1, ok := m[1]
+	fmt.Println(v1, ok) // 1, true
+	v2 := m[1]
+	fmt.Println(v2) // 1
+	v3, ok := m[2]
+	fmt.Println(v3, ok) // 返回类型默认值和false
+	v4 := m[2]
+	fmt.Println(v4) // 返回类型默认值，这里不小心也很容易犯错
 }

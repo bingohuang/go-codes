@@ -7,7 +7,9 @@ import (
 
 func main() {
 	//array1()
-	array2()
+	//array2()
+	//array3()
+	array4()
 }
 
 func array1() {
@@ -30,4 +32,17 @@ func array2() {
 	//*(*int)(unsafePtr + 2) = 6 //  wrong
 	//(*int)(unsafePtr + 2*unsafe.Sizeof(intValue[0])) = 6 //  wrong
 	fmt.Println(intValue)
+}
+
+func array3() {
+	arr := [3]int{2, 3}
+	arr2 := [...]int{3: -1}
+	fmt.Println(arr, arr2)
+}
+
+func array4() {
+	arr := [3]int{1, 2, 3}
+	arr2 := arr
+	arr2[0] = 0
+	fmt.Println(arr, arr2)
 }

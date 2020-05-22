@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	defer2()
-
+	defer1()
+	//defer2()
 }
 
 func defer1() {
@@ -14,7 +14,7 @@ func defer1() {
 		defer fmt.Println("2")
 	}
 	fmt.Println("3")
-
+	// 3 1
 }
 
 func defer2() {
