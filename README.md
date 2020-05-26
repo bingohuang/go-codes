@@ -1,5 +1,5 @@
 # go-codes
-我的 Go 编码库
+我的 Go 编码集
 
 ---
 ## LeetCode 刷题集
