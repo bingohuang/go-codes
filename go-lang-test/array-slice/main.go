@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	//array_slice1()
-	array_slice2()
+	array_slice1()
+	//array_slice2()
 }
 
 func array_slice1() {
@@ -12,7 +12,7 @@ func array_slice1() {
 	slice1 := array[0:2]
 	slice3 := append(slice1, "python")
 	slice3 = append(slice3, "ruby")
-	slice3 = append(slice3, "js")
+	//slice3 = append(slice3, "js")
 	fmt.Println(array, slice3)
 }
 
