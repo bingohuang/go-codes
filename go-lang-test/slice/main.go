@@ -6,9 +6,9 @@ func main() {
 	//slice1()
 	//slice2()
 	//slice3()
-	slice4()
+	//slice4()
 	//slice5()
-	//slice6()
+	slice6()
 
 }
 
@@ -99,10 +99,10 @@ func slice5() {
 
 func slice6() {
 	intSlice := []int{1, 2, 3}
-	intSlice2 := intSlice[1:3]
-	intSlice[1] = 0
-	intSlice2 = append(intSlice2, 4)
-	intSlice2[1] = 6
-	fmt.Println("intSlice=", intSlice)
-	fmt.Println("intSlice2=", intSlice2)
+	intSlice2 := intSlice[1:3]           // 2,3
+	intSlice[1] = 0                      // intSlice=1,0,3 intSlice2=0,3
+	intSlice2 = append(intSlice2, 4)     // intSlice2=0,3,4
+	intSlice2[1] = 6                     // intSlice2=0,6,4
+	fmt.Println("intSlice=", intSlice)   // 1,0,3
+	fmt.Println("intSlice2=", intSlice2) // 0,6,4
 }

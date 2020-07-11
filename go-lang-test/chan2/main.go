@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	chan1()
+	//chan1()
 	//chan2()
-	//chan3()
+	chan3()
 }
 
 // 执行第二个close会报错
