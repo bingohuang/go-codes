@@ -94,27 +94,33 @@ func Test113(t *testing.T) {
  * }
  */
 func pathSum(root *TreeNode, sum int) [][]int {
+	// 20200721
+	// 执行耗时:4 ms,击败了92.24% 的Go用户
+	// 内存消耗:4.5 MB,击败了83.33% 的Go用户
 	var result [][]int
 	var path []int
 	var pathValue int
-	var preOrder func(node *TreeNode, sum int)
-	preOrder = func(node *TreeNode, sum int) {
+
+	var preorder func(node *TreeNode, sum int)
+	preorder = func(node *TreeNode, sum int) {
 		if node == nil {
 			return
 		}
 		pathValue += node.Val
 		path = append(path, node.Val)
-		if node.Left == nil && node.Right == nil && pathValue == sum {
-			t := make([]int, len(path))
-			copy(t, path)
-			result = append(result, t)
+		if node.Left == nil && node.Right == nil && sum == pathValue {
+			tmp := make([]int, len(path))
+			copy(tmp, path)
+			result = append(result, tmp)
 		}
-		preOrder(node.Left, sum)
-		preOrder(node.Right, sum)
+		preorder(node.Left, sum)
+		preorder(node.Right, sum)
 		pathValue -= node.Val
-		path = path[:len(path)-1] // pop
+		path = path[:len(path)-1]
+
 	}
-	preOrder(root, sum)
+	preorder(root, sum)
+
 	return result
 }
 
@@ -145,3 +151,28 @@ func pathSum(root *TreeNode, sum int) [][]int {
 //]
 //
 // Related Topics 树 深度优先搜索
+func pathSum1(root *TreeNode, sum int) [][]int {
+	// 20200311
+	var result [][]int
+	var path []int
+	var pathValue int
+	var preOrder func(node *TreeNode, sum int)
+	preOrder = func(node *TreeNode, sum int) {
+		if node == nil {
+			return
+		}
+		pathValue += node.Val
+		path = append(path, node.Val)
+		if node.Left == nil && node.Right == nil && pathValue == sum {
+			t := make([]int, len(path))
+			copy(t, path)
+			result = append(result, t)
+		}
+		preOrder(node.Left, sum)
+		preOrder(node.Right, sum)
+		pathValue -= node.Val
+		path = path[:len(path)-1] // pop
+	}
+	preOrder(root, sum)
+	return result
+}
