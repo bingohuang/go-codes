@@ -91,36 +91,66 @@ func levelOrderBottom(root *TreeNode) [][]int {
 	// 1、首先想到的是广度优先搜索-BFS
 	// Runtime:4 ms, faster than 27.72% of Go online submissions.
 	// Memory Usage:6.4 MB, less than 20.00% of Go online submissions.
-	var result [][]int
-	if root == nil {
-		return result
-	}
-
-	queue := []*TreeNode{root}
-
-	for len(queue) > 0 {
-		l := len(queue)
-		list := make([]int, 0)
-
-		for i := 0; i < l; i++ {
-			node := queue[i]
-			list = append(list, node.Val)
-			if node.Left != nil {
-				queue = append(queue, node.Left)
-			}
-			if node.Right != nil {
-				queue = append(queue, node.Right)
-			}
-		}
-		result = append([][]int{list}, result...) // 插入到result最前面
-		queue = queue[l:]                         // 此处注意，是l不是1
-	}
-
-	return result
+	//var result [][]int
+	//if root == nil {
+	//	return result
+	//}
+	//
+	//queue := []*TreeNode{root}
+	//
+	//for len(queue) > 0 {
+	//	l := len(queue)
+	//	list := make([]int, 0)
+	//
+	//	for i := 0; i < l; i++ {
+	//		node := queue[i]
+	//		list = append(list, node.Val)
+	//		if node.Left != nil {
+	//			queue = append(queue, node.Left)
+	//		}
+	//		if node.Right != nil {
+	//			queue = append(queue, node.Right)
+	//		}
+	//	}
+	//	result = append([][]int{list}, result...) // 插入到result最前面
+	//	queue = queue[l:]                         // 此处注意，是l不是1
+	//}
+	//
+	//return result
 
 	// 20200721
 	// 2、深度优先搜索也是可以的 - DFS
+	// 执行耗时:0 ms,击败了100.00% 的Go用户
+	// 内存消耗:3 MB,击败了60.00% 的Go用户
+	res := make([][]int, 0)
 
+	var preorder func(node *TreeNode, level int)
+	preorder = func(node *TreeNode, level int) {
+		if node == nil {
+			return
+		}
+		if level >= len(res) {
+			res = append(res, []int{node.Val})
+		} else {
+			res[level] = append(res[level], node.Val)
+		}
+		preorder(node.Left, level+1)
+		preorder(node.Right, level+1)
+
+	}
+	// 先序遍历root
+	preorder(root, 0)
+	// 反转res
+	left := 0
+	right := len(res) - 1
+	for left < right {
+		tmp := res[left]
+		res[left] = res[right]
+		res[right] = tmp
+		left++
+		right--
+	}
+	return res
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
