@@ -92,6 +92,7 @@ func Test112(t *testing.T) {
  * }
  */
 func hasPathSum(root *TreeNode, sum int) bool {
+	// 20200721: 复习一遍
 	if root == nil {
 		return false
 	}
@@ -123,3 +124,15 @@ func hasPathSum(root *TreeNode, sum int) bool {
 //
 // 返回 true, 因为存在目标和为 22 的根节点到叶子节点的路径 5->4->11->2。
 // Related Topics 树 深度优先搜索
+
+// 做过的题
+func hasPathSum1(root *TreeNode, sum int) bool {
+	if root == nil {
+		return false
+	}
+	sum -= root.Val
+	if root.Left == nil && root.Right == nil {
+		return sum == 0
+	}
+	return hasPathSum(root.Left, sum) || hasPathSum(root.Right, sum)
+}
