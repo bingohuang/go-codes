@@ -89,13 +89,34 @@ func Test101(t *testing.T) {
  */
 func isSymmetric(root *TreeNode) bool {
 	// 20200721
-	// 1、递归：同时做先序遍历，一个从左往右，一个从右往左，对比是否相同
+	// 1、递归：同时做先序遍历，一个从左往右，一个从右往左，对比是否相同 - 深度优先搜索
 	// 执行耗时:0 ms,击败了100.00% 的Go用户
 	// 内存消耗:2.9 MB,击败了100.00% 的Go用户
-	var preorder func(p *TreeNode, q *TreeNode) bool
-	preorder = func(p *TreeNode, q *TreeNode) bool {
+	//var preorder func(p *TreeNode, q *TreeNode) bool
+	//preorder = func(p *TreeNode, q *TreeNode) bool {
+	//	if p == nil && q == nil {
+	//		return true
+	//	}
+	//	if p == nil || q == nil {
+	//		return false
+	//	}
+	//	return p.Val == q.Val && preorder(p.Left, q.Right) && preorder(p.Right, q.Left)
+	//}
+	//return preorder(root, root)
+
+	// 20200721
+	// 2、迭代：一个队列，同时放两个值取两个值 - 广度优先搜索
+	// 执行耗时:4 ms,击败了75.60% 的Go用户
+	// 内存消耗:3.1 MB,击败了28.57% 的Go用户
+	p, q := root, root
+	qu := []*TreeNode{}
+	qu = append(qu, p)
+	qu = append(qu, q)
+	for len(qu) > 0 {
+		p, q = qu[0], qu[1]
+		qu = qu[2:]
 		if p == nil && q == nil {
-			return true
+			continue
 		}
 		if p == nil || q == nil {
 			return false
@@ -103,12 +124,12 @@ func isSymmetric(root *TreeNode) bool {
 		if p.Val != q.Val {
 			return false
 		}
-		return preorder(p.Left, q.Right) && preorder(p.Right, q.Left)
+		qu = append(qu, p.Left)
+		qu = append(qu, q.Right)
+		qu = append(qu, p.Right)
+		qu = append(qu, q.Left)
 	}
-	return preorder(root, root)
-
-	// 20200721
-	// 2、迭代： - TODO
+	return true
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
