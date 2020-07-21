@@ -117,7 +117,7 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	}
 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 
-	// 4、双队列法
+	// 4、迭代法：双队列 - TODO
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
