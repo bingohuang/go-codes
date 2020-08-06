@@ -30,7 +30,7 @@ type IO$!{question.frontendQuestionId} struct {
 func Test$!{question.frontendQuestionId}(t *testing.T) {
 	// add test cases
 	tc := map[string]IO$!{question.frontendQuestionId}{
-		"1": {[]string{}, []int{}},
+		"0": {[]string{}, []int{}},
 	}
 
 	for k, v := range tc {
