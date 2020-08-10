@@ -69,7 +69,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 	// 1、bfs：层次遍历，按层次奇偶顺序反转
 	// 执行耗时:0 ms,击败了100.00% 的Go用户
 	// 内存消耗:2.8 MB,击败了13.95% 的Go用户
-	if root == nil {
+	/*if root == nil {
 		return nil
 	}
 	var res [][]int
@@ -99,6 +99,39 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 			}
 			isOrderLeft = !isOrderLeft
 		}
+	}
+	return res*/
+
+	// 20200810
+	// 1.1、写法优化
+	// 执行耗时:0 ms,击败了100.00% 的Go用户
+	// 内存消耗:2.8 MB,击败了15.96% 的Go用户
+	if root == nil {
+		return nil
+	}
+	var res [][]int
+	q := []*TreeNode{root}
+	isOrderLeft := true
+	for len(q) > 0 {
+		l := len(q)
+		var list []int
+		for i := 0; i < l; i++ {
+			node := q[0]
+			q = q[1:]
+			if isOrderLeft {
+				list = append(list, node.Val)
+			} else {
+				list = append([]int{node.Val}, list...)
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		isOrderLeft = !isOrderLeft
+		res = append(res, list)
 	}
 	return res
 
