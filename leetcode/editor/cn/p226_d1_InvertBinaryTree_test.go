@@ -108,7 +108,7 @@ func invertTree(root *TreeNode) *TreeNode {
 	// 4. 利用层次遍历
 	// 执行耗时:0 ms,击败了100.00% 的Go用户
 	// 内存消耗:2.1 MB,击败了11.11% 的Go用户
-	if root == nil {
+	/*if root == nil {
 		return nil
 	}
 	q := []*TreeNode{root}
@@ -125,6 +125,29 @@ func invertTree(root *TreeNode) *TreeNode {
 			q = append(q, n.Right)
 		}
 	}
+	return root*/
+
+	// 20200811
+	// https://leetcode-cn.com/problems/invert-binary-tree/solution/go-qian-xu-bian-li-by-yi-jie-diao-min-3/
+	// 5. 树的遍历
+	// Runtime:0 ms, faster than 100.00% of Go online submissions.
+	// Memory Usage:2.1 MB, less than 15.05% of Go online submissions.
+	/*if root == nil {
+		return nil
+	}
+	node := &TreeNode{Val:root.Val}
+	node.Left = invertTree(root.Right)
+	node.Right = invertTree(root.Left)
+	return node*/
+	// 6. 先序遍历
+	// Runtime:0 ms, faster than 100.00% of Go online submissions.
+	// Memory Usage:2.1 MB, less than 100.00% of Go online submissions.
+	if root == nil {
+		return nil
+	}
+	root.Left, root.Right = root.Right, root.Left
+	invertTree(root.Left)
+	invertTree(root.Right)
 	return root
 }
 
