@@ -53,6 +53,7 @@ func Test208(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 // 20200817
+// https://leetcode-cn.com/problems/implement-trie-prefix-tree/solution/golangqian-zhui-shu-ti-jie-si-lu-by-user4484c/
 // 执行耗时:84 ms,击败了37.74% 的Go用户
 // 内存消耗:18.1 MB,击败了49.23% 的Go用户
 type Trie struct {
