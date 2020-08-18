@@ -21,8 +21,18 @@ type IO36 struct {
 func Test36(t *testing.T) {
 	// add test cases
 	tc := map[string]IO36{
-		"0": {[][]byte{}, true},
+		/*"0": {[][]byte{}, true},
 		"1": {[][]byte{
+			{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+			{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+			{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+			{'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+			{'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+			{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+			{'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+			{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+			{'.', '.', '.', '.', '8', '.', '.', '7', '9'}}, true},*/
+		"2": {[][]byte{
 			{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
 			{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
 			{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
@@ -52,8 +62,8 @@ func Test36(t *testing.T) {
 //leetcode submit region begin(Prohibit modification and deletion)
 func isValidSudoku(board [][]byte) bool {
 	// 20200818
-	// 执行耗时:4 ms,击败了90.09% 的Go用户
-	// 内存消耗:3.1 MB,击败了57.41% 的Go用户
+	// 执行耗时:4 ms,击败了66.43% 的Go用户
+	// 内存消耗:2.8 MB,击败了69.67% 的Go用户
 	for i := 0; i < 9; i++ {
 		m1 := map[byte]bool{}
 		m2 := map[byte]bool{}
@@ -68,16 +78,16 @@ func isValidSudoku(board [][]byte) bool {
 			}
 			// column
 			if board[j][i] != '.' {
-				if m1[board[j][i]] {
+				if m2[board[j][i]] {
 					return false
 				}
-				m2[board[i][j]] = true
+				m2[board[j][i]] = true
 			}
 			// part
 			row := (i%3)*3 + j%3
 			col := (i/3)*3 + j/3
 			if board[row][col] != '.' {
-				if m1[board[row][col]] {
+				if m3[board[row][col]] {
 					return false
 				}
 				m3[board[row][col]] = true
