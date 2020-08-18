@@ -29,7 +29,7 @@ func Test56(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := merge(v.in)
+		out := merge56(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -43,7 +43,7 @@ func Test56(t *testing.T) {
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-func merge(intervals [][]int) [][]int {
+func merge56(intervals [][]int) [][]int {
 	// 20200423
 	// 执行耗时:12 ms,击败了81.35% 的Go用户
 	// 内存消耗:4.7 MB,击败了100.00% 的Go用户
