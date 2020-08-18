@@ -83,13 +83,13 @@ func openLock(deadends []string, target string) int {
 			// 将一个节点的未遍历相邻节点加入队列
 			for j := 0; j < 4; j++ {
 				// 上拨
-				up := plusOne(cur, j)
+				up := plusOne752(cur, j)
 				if _, ok := visited[up]; !ok {
 					queue = append(queue, up)
 					visited[up] = struct{}{}
 				}
 				// 下拨
-				down := minusOne(cur, j)
+				down := minusOne752(cur, j)
 				if _, ok := visited[down]; !ok {
 					queue = append(queue, down)
 					visited[down] = struct{}{}
@@ -101,7 +101,7 @@ func openLock(deadends []string, target string) int {
 
 	return -1
 }
-func plusOne(s string, j int) string {
+func plusOne752(s string, j int) string {
 	res := []byte(s)
 	if res[j] == '9' {
 		res[j] = '0'
@@ -110,7 +110,7 @@ func plusOne(s string, j int) string {
 	}
 	return string(res)
 }
-func minusOne(s string, j int) string {
+func minusOne752(s string, j int) string {
 	res := []byte(s)
 	if res[j] == '0' {
 		res[j] = '9'
