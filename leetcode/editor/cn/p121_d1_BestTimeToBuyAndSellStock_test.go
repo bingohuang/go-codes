@@ -22,15 +22,15 @@ type IO121 struct {
 func Test121(t *testing.T) {
 	// add test cases
 	tc := map[string]IO121{
-		"0": IO121{[]int{}, 0},
-		"1": IO121{[]int{7, 1, 5, 3, 6, 4}, 5},
-		"2": IO121{[]int{7, 6, 4, 3, 1}, 0},
-		"3": IO121{[]int{2, 5, 1, 3}, 3},
+		"0": {[]int{}, 0},
+		"1": {[]int{7, 1, 5, 3, 6, 4}, 5},
+		"2": {[]int{7, 6, 4, 3, 1}, 0},
+		"3": {[]int{2, 5, 1, 3}, 3},
 	}
 
 	for k, v := range tc {
 		// algo func
-		out := maxProfit(v.in)
+		out := maxProfit121(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -45,7 +45,7 @@ func Test121(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 // TODO: 提交前记得改名
-func maxProfit(prices []int) int {
+func maxProfit121(prices []int) int {
 	// 2020-08-20 10:17 @bingohuang
 	// 算法：1、暴力解法
 	// 复杂度：O(N^2)/O(1)
