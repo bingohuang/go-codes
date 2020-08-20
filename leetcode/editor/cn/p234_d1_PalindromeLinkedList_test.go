@@ -36,7 +36,7 @@ func Test234(t *testing.T) {
 
 	for k, v := range tc {
 		// algo func
-		out := isPalindrome(v.in)
+		out := isPalindrome234(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -57,7 +57,7 @@ func Test234(t *testing.T) {
  *     Next *ListNode
  * }
  */
-func isPalindrome(head *ListNode) bool {
+func isPalindrome234(head *ListNode) bool {
 	// 20200811
 	// 1、复制到数组，再用双指针比较数组是否为回文
 	// 复杂度: O(N)/O(N)
