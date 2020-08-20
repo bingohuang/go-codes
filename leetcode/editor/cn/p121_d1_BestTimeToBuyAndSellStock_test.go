@@ -8,6 +8,7 @@ package test
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"testing"
 )
@@ -21,12 +22,15 @@ type IO121 struct {
 func Test121(t *testing.T) {
 	// add test cases
 	tc := map[string]IO121{
-		"1": IO121{[]int{}, 0},
+		"0": IO121{[]int{}, 0},
+		"1": IO121{[]int{7, 1, 5, 3, 6, 4}, 5},
+		"2": IO121{[]int{7, 6, 4, 3, 1}, 0},
+		"3": IO121{[]int{2, 5, 1, 3}, 3},
 	}
 
 	for k, v := range tc {
 		// algo func
-		out := maxProfit1(v.in)
+		out := maxProfit(v.in)
 
 		fmt.Printf("case-%v:\n", k)
 		fmt.Printf("\tinput: %v\n", v.in)
@@ -41,9 +45,39 @@ func Test121(t *testing.T) {
 
 //leetcode submit region begin(Prohibit modification and deletion)
 // TODO: 提交前记得改名
-func maxProfit1(prices []int) int {
-
-	return 0
+func maxProfit(prices []int) int {
+	// 2020-08-20 10:17 @bingohuang
+	// 算法：1、暴力解法
+	// 复杂度：O(N^2)/O(1)
+	// 效率：执行耗时:260 ms,击败了7.57% 的Go用户
+	//		内存消耗:3.1 MB,击败了20.94% 的Go用户
+	/*maxProfit := 0
+	n := len(prices)
+	for i:=0;i<n;i++{
+		for j := i;j<n;j++{
+			profilt := prices[j] - prices[i]
+			if profilt > maxProfit {
+				maxProfit = profilt
+			}
+		}
+	}
+	return maxProfit*/
+	// 2020-08-20 10:31 @bingohuang
+	// 算法：2、一次遍历
+	// 复杂度：
+	// 效率：
+	minPrice := math.MaxInt64
+	maxProfit := 0
+	for i := 0; i < len(prices); i++ {
+		if minPrice > prices[i] {
+			minPrice = prices[i]
+		}
+		if prices[i]-minPrice > maxProfit {
+			maxProfit = prices[i] - minPrice
+		}
+	}
+	fmt.Println("minPrice:", minPrice)
+	return maxProfit
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
