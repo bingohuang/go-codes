@@ -68,8 +68,9 @@ $!velocityTool.camelCaseName(str)	transform str camel case
 ```
 date
 // $date$ @bingohuang
-// 算法：
-// 复杂度：
+// 算法：$1$
+// 复杂度：$2$
 // 效率：
+$3$
 date("yyyy-MM-dd HH:mm")
 ```
