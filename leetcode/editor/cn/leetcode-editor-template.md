@@ -12,6 +12,7 @@ p$!{question.frontendQuestionId}_d$!{question.level}_$!velocityTool.camelCaseNam
 题目: ${question.frontendQuestionId}. ${question.title}
 难度: $!{question.level}
 地址: https://leetcode-cn.com/problems/$!{question.titleSlug}/
+日期：$!velocityTool.date()
 */
 package test
 
@@ -61,4 +62,14 @@ ${question.frontendQuestionId}	question serial number
 ${question.content}	question content
 ${question.code}	question code
 $!velocityTool.camelCaseName(str)	transform str camel case
+```
+
+## live template
+```
+date
+// $date$ @bingohuang
+// 算法：
+// 复杂度：
+// 效率：
+date("yyyy-MM-dd HH:mm")
 ```
