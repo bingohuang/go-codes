@@ -92,7 +92,7 @@ func Test111(t *testing.T) {
  * }
  */
 func minDepth(root *TreeNode) int {
-	depth := 0
+	/*depth := 0
 	if root == nil {
 		return depth
 	}
@@ -110,6 +110,34 @@ func minDepth(root *TreeNode) int {
 				queue = append(queue, queue[0].Right)
 			}
 			queue = queue[1:]
+		}
+	}
+	return depth*/
+	// 2020-08-22 21:43 @bingohuang
+	// 算法：1、层次遍历法
+	// 复杂度：
+	// 效率：执行耗时:8 ms,击败了73.66% 的Go用户
+	//			内存消耗:5.1 MB,击败了91.29% 的Go用户
+	depth := 0
+	if root == nil {
+		return depth
+	}
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		depth++
+		l := len(queue)
+		for i := 0; i < l; i++ {
+			node := queue[0]
+			queue = queue[1:]
+			if node.Left == nil && node.Right == nil {
+				return depth
+			}
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
 		}
 	}
 	return depth
