@@ -50,7 +50,7 @@ func Test51(t *testing.T) {
 	}
 }
 
-func solveNQueens1(n int) [][]string {
+/*func solveNQueens1(n int) [][]string {
 	res51 = [][]string{}
 	chessBoard := make([][]bool, n)
 	for i := 0; i < n; i++ {
@@ -81,84 +81,86 @@ func trackBack51_1(chessBoard [][]bool, track [][]byte) {
 		track = track[:len(track)-1]
 		chessBoard[len(track)][j] = false
 	}
-}
+}*/
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func solveNQueens(n int) [][]string {
-	res51 = [][]string{}
+	// 2020-09-03 10:42 @bingohuang
+	// 算法：1、回溯法
+	// 复杂度：
+	// 效率：执行耗时:8 ms,击败了34.66% 的Go用户
+	//			内存消耗:3.8 MB,击败了13.70% 的Go用户
+	// 做一些重构
+	var res [][]string
+	valid := func(chessBoard [][]bool, row, cow int) bool {
+		var i, j int
+		for i = 0; i < row; i++ {
+			if chessBoard[i][cow] == true {
+				return false
+			}
+		}
+		for j = 0; j < len(chessBoard); j++ {
+			if chessBoard[row][j] == true {
+				return false
+			}
+		}
+		i, j = row, cow
+		for i >= 0 && j >= 0 {
+			if chessBoard[i][j] == true {
+				return false
+			}
+			i--
+			j--
+		}
+		i, j = row, cow
+		for i >= 0 && j < len(chessBoard) {
+			if chessBoard[i][j] == true {
+				return false
+			}
+			j++
+			i--
+		}
+		return true
+	}
+
+	getLine := func(n int) []byte {
+		bs := make([]byte, n)
+		for i := 0; i < n; i++ {
+			bs[i] = '.'
+		}
+		return bs
+	}
+
+	var trackBack func(chessBoard [][]bool, track [][]byte)
+	trackBack = func(chessBoard [][]bool, track [][]byte) {
+		if len(track) == len(chessBoard) {
+			t := make([]string, len(track))
+			for k, bs := range track {
+				t[k] = string(bs)
+			}
+			res = append(res, t)
+		}
+
+		for j := 0; j < len(chessBoard); j++ {
+			if !valid(chessBoard, len(track), j) {
+				continue
+			}
+			bs := getLine(len(chessBoard))
+			bs[j] = 'Q'
+			chessBoard[len(track)][j] = true
+			track = append(track, bs)
+			trackBack(chessBoard, track)
+			track = track[:len(track)-1]
+			chessBoard[len(track)][j] = false
+		}
+	}
+
 	chessBoard := make([][]bool, n)
 	for i := 0; i < n; i++ {
 		chessBoard[i] = make([]bool, n)
 	}
-	trackBack51(chessBoard, [][]byte{})
-	return res51
-}
-
-var res51 [][]string
-
-func trackBack51(chessBoard [][]bool, track [][]byte) {
-	if len(track) == len(chessBoard) {
-		t := make([]string, len(track))
-		for k, bs := range track {
-			t[k] = string(bs)
-		}
-		res51 = append(res51, t)
-	}
-
-	for j := 0; j < len(chessBoard); j++ {
-		if !valid51(chessBoard, len(track), j) {
-			continue
-		}
-		bs := getLine51(len(chessBoard))
-		bs[j] = 'Q'
-		chessBoard[len(track)][j] = true
-		track = append(track, bs)
-		trackBack51(chessBoard, track)
-		track = track[:len(track)-1]
-		chessBoard[len(track)][j] = false
-	}
-}
-
-func valid51(chessBoard [][]bool, row, cow int) bool {
-	var i, j int
-	for i = 0; i < row; i++ {
-		if chessBoard[i][cow] == true {
-			return false
-		}
-	}
-
-	for j = 0; j < len(chessBoard); j++ {
-		if chessBoard[row][j] == true {
-			return false
-		}
-	}
-
-	i, j = row, cow
-	for i >= 0 && j >= 0 {
-		if chessBoard[i][j] == true {
-			return false
-		}
-		i--
-		j--
-	}
-
-	i, j = row, cow
-	for i >= 0 && j < len(chessBoard) {
-		if chessBoard[i][j] == true {
-			return false
-		}
-		j++
-		i--
-	}
-	return true
-}
-
-func getLine51(n int) []byte {
-	bs := make([]byte, n)
-	for i := 0; i < n; i++ {
-		bs[i] = '.'
-	}
-	return bs
+	trackBack(chessBoard, [][]byte{})
+	return res
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
