@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	string2()
+	//string2()
+	string3()
 }
 
 func string1() {
@@ -17,4 +21,10 @@ func string2() {
 
 	fmt.Println(len(s), len(r)) // 7,11
 
+}
+
+func string3() {
+	s := "18+"
+	r, _ := strconv.Atoi(s[0:2])
+	fmt.Println(r)
 }
